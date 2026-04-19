@@ -6,20 +6,12 @@
 <link rel="icon" type="image/png" href="btn2.jpg">
 <title>TEK IU</title>
 
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter', sans-serif;
-}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
 
 body {
     background:#0a1f44;
@@ -28,7 +20,7 @@ body {
 }
 
 /* =========================
-   NAVBAR
+   NAVBAR (MATCHES ABOUT)
 ========================= */
 nav {
     position:fixed;
@@ -44,14 +36,11 @@ nav {
     z-index:1000;
 }
 
-
-/* LOGO LEFT (BIGGER) */
 .nav-logo img {
-    height:58px;
+    height:70px;
     object-fit:contain;
 }
 
-/* RIGHT NAV LINKS */
 .nav-links {
     display:flex;
     align-items:center;
@@ -64,10 +53,9 @@ nav {
     font-size:15px;
     font-weight:500;
     position:relative;
-    transition:0.3s;
 }
 
-/* WHITE UNDERLINE HOVER */
+/* hover underline */
 .nav-links a::after {
     content:'';
     position:absolute;
@@ -83,7 +71,6 @@ nav {
     width:100%;
 }
 
-/* CONNECT BUTTON */
 .connect-btn {
     border:1.5px solid white;
     padding:8px 18px;
@@ -104,14 +91,10 @@ nav {
     justify-content:center;
     align-items:center;
     text-align:center;
-
     position:relative;
-    overflow:hidden;
-
-    background: url("logo.jpg") center/cover no-repeat;
+    background:url("logo.jpg") center/cover no-repeat;
 }
 
-/* DARK OVERLAY */
 .hero::before {
     content:'';
     position:absolute;
@@ -119,48 +102,33 @@ nav {
     background:rgba(10,31,68,0.65);
 }
 
-/* CONTENT */
 .hero-content {
     position:relative;
     z-index:2;
-    max-width:800px;
 }
 
-/* TITLE */
 .hero h1 {
     font-size:3.8rem;
-    font-weight:600;
     letter-spacing:2px;
-
-    text-shadow:0 0 30px rgba(255,255,255,0.2);
 }
 
-/* SUBTEXT */
 .hero p {
     margin-top:10px;
     letter-spacing:3px;
     opacity:0.85;
 }
 
-/* EST */
 .hero .est {
     font-size:0.85rem;
     opacity:0.6;
-    margin-top:6px;
 }
 
-/* BUTTON */
 .hero-btn {
     margin-top:30px;
     padding:14px 34px;
-
     border:2px solid white;
     background:none;
     color:white;
-
-    font-weight:500;
-    letter-spacing:1px;
-
     cursor:pointer;
     transition:0.3s;
 }
@@ -168,17 +136,81 @@ nav {
 .hero-btn:hover {
     background:white;
     color:#0a1f44;
-    transform:translateY(-2px);
 }
 
 /* =========================
-   FOOTER
+   RUSH TIMELINE (CLEAN HORIZONTAL)
 ========================= */
+.rush-section {
+    padding:140px 40px;
+    text-align:center;
+}
+
+.rush-section h2 {
+    font-size:2.5rem;
+    margin-bottom:80px;
+}
+
+/* LINE */
+.rush-line {
+    position:relative;
+    height:2px;
+    background:linear-gradient(to right, #3b82f6, transparent);
+    max-width:1000px;
+    margin:0 auto 60px auto;
+}
+
+/* ITEMS ROW */
+.rush-items {
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+}
+
+/* EACH ITEM */
+.rush-item {
+    flex:1;
+    text-align:center;
+    position:relative;
+}
+
+/* DOT */
+.rush-dot {
+    width:14px;
+    height:14px;
+    background:#3b82f6;
+    border-radius:50%;
+    margin:0 auto;
+    margin-top:-67px;
+    box-shadow:0 0 10px #3b82f6;
+    transition:0.3s;
+}
+
+/* HOVER */
+.rush-item:hover .rush-dot {
+    transform:scale(1.2);
+    box-shadow:0 0 20px #3b82f6, 0 0 40px #3b82f6;
+}
+
+/* TEXT */
+.rush-item h4 {
+    margin-top:15px;
+    margin-bottom:6px;
+}
+
+.rush-item p {
+    font-size:13px;
+    opacity:0.75;
+}
+
+/* FOOTER */
 footer {
     padding:30px;
     text-align:center;
     opacity:0.5;
-    font-size:14px;
 }
 
 </style>
@@ -186,52 +218,76 @@ footer {
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
 <nav>
-
 <div class="nav-logo">
-    <a href="index.html">
-        <img src="btn.png" alt="TEK Logo">
-    </a>
+    <a href="index.html"><img src="btn.png"></a>
 </div>
 
-    <!-- RIGHT LINKS -->
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="members.html">Members</a>
-        <a href="activities.html">Activities</a>
-        <a href="connect.html" class="connect-btn">Connect</a>
-    </div>
-
+<div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="members.html">Members</a>
+    <a href="activities.html">Activities</a>
+    <a href="connect.html" class="connect-btn">Connect</a>
+</div>
 </nav>
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 <section class="hero">
+<div class="hero-content">
+<h1>Tau Epsilon Kappa</h1>
+<p>INDIANA UNIVERSITY</p>
+<div class="est">EST. 2026</div>
 
-    <div class="hero-content">
+<a href="about.html">
+<button class="hero-btn">Explore TEK</button>
+</a>
+</div>
+</section>
 
-        <h1>Tau Epsilon Kappa</h1>
+<!-- RUSH TIMELINE -->
+<section class="rush-section">
 
-        <p>INDIANA UNIVERSITY</p>
+<h2>Spring 2026 Rush Timeline</h2>
 
-        <div class="est">EST. 2026</div>
+<div class="rush-line"></div>
 
-        <a href="about.html">
-            <button class="hero-btn">Explore TEK</button>
-        </a>
+<div class="rush-items">
 
-    </div>
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 2</h4>
+    <p>Info Session & Networking Night</p>
+</div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 4–6</h4>
+    <p>Small Group Dinners</p>
+</div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 7</h4>
+    <p>Interview Invitations Released</p>
+</div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 9–11</h4>
+    <p>Final Interviews</p>
+</div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>After Interviews</h4>
+    <p>Bids Released</p>
+</div>
+
+</div>
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
 <footer>
 © 2026 Tau Epsilon Kappa — Indiana University
 </footer>
