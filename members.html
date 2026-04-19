@@ -10,17 +10,26 @@
 
 <style>
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+/* =========================
+   RESET
+========================= */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
 
-body{
+body {
     background:#0a1f44;
     color:white;
     padding-top:90px;
 }
 
-/* NAV */
-nav{
+/* =========================
+   NAV
+========================= */
+nav {
     position:fixed;
     top:0;
     width:100%;
@@ -34,18 +43,23 @@ nav{
     z-index:1000;
 }
 
-.nav-logo img{height:70px;}
+.nav-logo img {
+    height:70px;
+}
 
-.nav-links{display:flex;gap:30px;}
+.nav-links {
+    display:flex;
+    gap:30px;
+}
 
-.nav-links a{
+.nav-links a {
     color:white;
     text-decoration:none;
     font-size:15px;
     position:relative;
 }
 
-.nav-links a::after{
+.nav-links a::after {
     content:'';
     position:absolute;
     bottom:-6px;
@@ -56,169 +70,174 @@ nav{
     transition:.3s;
 }
 
-.nav-links a:hover::after{width:100%;}
+.nav-links a:hover::after {
+    width:100%;
+}
 
-.connect-btn{
+.connect-btn {
     border:1.5px solid white;
     padding:8px 18px;
     border-radius:6px;
 }
 
-.connect-btn:hover{
+.connect-btn:hover {
     background:white;
     color:#0a1f44;
 }
 
-/* HERO */
-.page-hero{
+/* =========================
+   HERO
+========================= */
+.page-hero {
     text-align:center;
     padding:160px 20px 60px;
 }
 
-.page-hero h1{font-size:3rem; letter-spacing:-0.02em;}
+.page-hero h1 {
+    font-size:3rem;
+}
 
-/* SECTION */
-.section{
+/* =========================
+   SECTIONS
+========================= */
+.section {
     max-width:1200px;
     margin:auto;
     padding:40px 20px;
 }
 
-.section h2{
+.section h2 {
     text-align:center;
-    margin-bottom:48px;
-    font-size:2.1rem;
+    margin-bottom:40px;
 }
 
-/* EXEC CARD - Focal point */
-.exec-grid{
-    display:flex;
-    justify-content:center;
-    gap:40px;
+/* =========================
+   EXEC GRID (FIXED)
+========================= */
+.exec-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:30px;
 }
 
-.exec-card{
-    width:320px;
-    background:rgba(255,255,255,0.07);
-    border-radius:20px;
-    padding:32px 28px;
+/* =========================
+   EXEC CARD
+========================= */
+.exec-card {
+    background:rgba(255,255,255,0.06);
+    border-radius:15px;
+    padding:20px;
     text-align:center;
-    backdrop-filter:blur(14px);
-    transition:.4s;
+    backdrop-filter:blur(12px);
+
     display:flex;
     flex-direction:column;
     align-items:center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    transition:.3s;
 }
 
-.exec-card:hover{
-    transform:translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+.exec-card:hover {
+    transform:translateY(-6px);
 }
 
-.exec-card img{
+/* IMAGE FIX */
+.exec-card img {
     width:100%;
-    height:280px;
+    height:260px;
     object-fit:cover;
-    border-radius:14px;
-    margin-bottom:24px;
+    border-radius:12px;
+    margin-bottom:15px;
 }
 
-.exec-card h3{
-    font-size:1.55rem;
-    font-weight:700;
-    margin-bottom:6px;
+/* TEXT SPACING */
+.exec-card h3 {
+    margin-bottom:4px;
 }
 
-.exec-card p{
-    font-size:1.1rem;
-    opacity:0.9;
-    margin-bottom:32px;
+.exec-card p {
+    margin-bottom:10px;
+    opacity:0.8;
 }
 
-/* ALPHA CLASS - Compact original style */
-.members-grid{
+/* =========================
+   MEMBERS GRID
+========================= */
+.members-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:24px;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
 }
 
-.member-card{
+/* =========================
+   MEMBER CARD
+========================= */
+.member-card {
     background:rgba(255,255,255,0.05);
-    padding:22px 20px;
-    border-radius:14px;
+    padding:18px;
+    border-radius:12px;
     text-align:center;
     transition:.3s;
 }
 
-.member-card:hover{
+.member-card:hover {
     transform:translateY(-5px);
 }
 
-.member-card strong{
+.member-card strong {
     display:block;
-    font-size:1.2rem;
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
 
-.member-card .major{
-    opacity:.75;
-    font-size:13.5px;
-    margin-bottom:18px;
+.member-card .major {
+    opacity:.7;
+    font-size:13px;
+    margin-bottom:10px;
 }
 
-/* LINKEDIN BUTTONS */
-
-.linkedin-btn{
+/* =========================
+   LINKEDIN BUTTON (FINAL)
+========================= */
+.linkedin-btn {
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:7px;
+    gap:6px;
+
+    padding:8px 14px;
+
     background:#3b82f6;
     color:white;
     text-decoration:none;
+    font-size:13px;
     font-weight:600;
-    border-radius:9999px;
-    transition:all .25s ease;
+
+    border-radius:999px;
+    line-height:1;
+
+    transition:.2s;
 }
 
-.linkedin-btn img{
-    width:15px;
-    height:15px;
+.linkedin-btn img {
+    width:14px;
+    height:14px;
+    display:block;
     filter:brightness(0) invert(1);
 }
 
-/* Alpha Class - Compact button (original narrow style) */
-.member-card .linkedin-btn{
-    padding:8px 16px;
-    font-size:13px;
-    margin: 0 auto;
-}
-
-.member-card .linkedin-btn:hover{
-    background:#2563eb;
+.linkedin-btn:hover {
     transform:translateY(-1px);
-}
-
-/* Executive Board - Nicer proportioned button that fits the larger card */
-.exec-card .linkedin-btn{
-    padding:8px 16px;
-    font-size:13px;
-    margin: 0 auto;
-}
-
-.exec-card .linkedin-btn:hover{
     background:#2563eb;
-    transform:translateY(-1px);
 }
 
-footer{
+/* =========================
+   FOOTER
+========================= */
+footer {
     text-align:center;
-    padding:50px 20px 30px;
-    opacity:.55;
-    font-size:14px;
+    padding:30px;
+    opacity:.5;
 }
-
 </style>
 </head>
 
