@@ -1,1 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>TEK IU</title>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
+
+body {
+    background:#0a1f44;
+    color:white;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+    position:fixed;
+    top:0;
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 60px;
+
+    background:rgba(10,31,68,0.75);
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+
+    z-index:1000;
+}
+
+/* LOGO LEFT */
+.nav-logo img {
+    height:42px;
+}
+
+/* RIGHT NAV LINKS */
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a {
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    position:relative;
+    transition:0.3s;
+}
+
+/* WHITE UNDERLINE HOVER */
+.nav-links a::after {
+    content:'';
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:white;
+    transition:0.3s;
+}
+
+.nav-links a:hover::after {
+    width:100%;
+}
+
+/* CONNECT BUTTON */
+.connect-btn {
+    border:1.5px solid white;
+    padding:8px 18px;
+    border-radius:6px;
+}
+
+.connect-btn:hover {
+    background:white;
+    color:#0a1f44;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background: url("logo.jpg") center/cover no-repeat;
+}
+
+/* DARK OVERLAY (important for readability) */
+.hero::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(10,31,68,0.65);
+}
+
+/* CONTENT */
+.hero-content {
+    position:relative;
+    z-index:2;
+    max-width:800px;
+}
+
+/* TITLE */
+.hero h1 {
+    font-size:3.8rem;
+    font-weight:600;
+    letter-spacing:2px;
+
+    text-shadow:0 0 30px rgba(255,255,255,0.2);
+}
+
+/* SUBTEXT */
+.hero p {
+    margin-top:10px;
+    letter-spacing:3px;
+    opacity:0.85;
+}
+
+/* EST */
+.hero .est {
+    font-size:0.85rem;
+    opacity:0.6;
+    margin-top:6px;
+}
+
+/* BUTTON */
+.hero-btn {
+    margin-top:30px;
+    padding:14px 34px;
+
+    border:2px solid white;
+    background:none;
+    color:white;
+
+    font-weight:500;
+    letter-spacing:1px;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero-btn:hover {
+    background:white;
+    color:#0a1f44;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding:30px;
+    text-align:center;
+    opacity:0.5;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+<nav>
+
+    <!-- LEFT LOGO -->
+    <div class="nav-logo">
+        <img src="btn.png" alt="TEK Logo">
+    </div>
+
+    <!-- RIGHT LINKS -->
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="members.html">Members</a>
+        <a href="activities.html">Activities</a>
+        <a href="connect.html" class="connect-btn">Connect</a>
+    </div>
+
+</nav>
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Tau Epsilon Kappa</h1>
+
+        <p>INDIANA UNIVERSITY</p>
+
+        <div class="est">EST. 2026</div>
+
+        <a href="about.html">
+            <button class="hero-btn">Explore TEK</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+© 2026 Tau Epsilon Kappa — Indiana University
+</footer>
+
+</body>
+</html>
