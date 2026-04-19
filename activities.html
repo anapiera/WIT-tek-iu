@@ -92,18 +92,22 @@ nav {
     font-size:3rem;
 }
 
-/* SECTION */
+/* SECTION (FIXED SPACING) */
 .section {
     max-width:1100px;
     margin:auto;
-    padding:40px 20px;
+    padding:60px 20px 40px;
+}
+
+.section h2 {
+    margin-bottom:25px;
 }
 
 /* ================= CAROUSEL BACKGROUND ================= */
 
 .carousel-section {
     position:relative;
-    padding:80px 0;
+    padding:40px 0 20px;
     overflow:hidden;
 }
 
@@ -129,59 +133,40 @@ nav {
     perspective:1200px;
     z-index:1;
 }
-/* ================= GLASS ARROWS ================= */
 
+/* CLEAN MINIMAL ARROWS */
 .carousel-arrow {
     position:absolute;
     top:50%;
     transform:translateY(-50%);
     z-index:10;
 
-    width:48px;
-    height:48px;
-    border-radius:50%;
-
-    border:1px solid rgba(255,255,255,0.25);
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(14px);
+    background:none;
+    border:none;
 
     color:white;
-    font-size:22px;
-    font-weight:600;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    font-size:40px;
+    font-weight:300;
 
     cursor:pointer;
-    transition:all 0.3s ease;
+    transition:0.25s;
 }
 
-/* LEFT / RIGHT POSITIONING */
+/* POSITION NEXT TO SIDE CARDS */
 .left-arrow {
-    left:20px;
+    left:calc(50% - 420px);
 }
 
 .right-arrow {
-    right:20px;
+    right:calc(50% - 420px);
 }
 
-/* HOVER = "LIQUID GLASS" FEEL */
+/* HOVER */
 .carousel-arrow:hover {
-    background:rgba(59,130,246,0.25);
-    border:1px solid rgba(59,130,246,0.6);
-
-    transform:translateY(-50%) scale(1.15);
-
-    box-shadow:
-        0 0 25px rgba(59,130,246,0.6),
-        0 0 60px rgba(59,130,246,0.3);
+    transform:translateY(-50%) scale(1.2);
+    opacity:0.8;
 }
 
-/* CLICK FEEDBACK */
-.carousel-arrow:active {
-    transform:translateY(-50%) scale(0.95);
-}
 /* CARD BASE */
 .card {
     position:absolute;
@@ -218,9 +203,7 @@ nav {
     background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 }
 
-/* STATES */
-
-/* CENTER (FOCAL) */
+/* CENTER */
 .card.center {
     transform:translate(-50%, -50%) scale(1.15);
     z-index:5;
@@ -250,7 +233,7 @@ nav {
     pointer-events:none;
 }
 
-/* HOVER (ONLY CENTER) */
+/* HOVER CENTER */
 .card.center:hover {
     transform:translate(-50%, -50%) scale(1.2);
     box-shadow:
@@ -304,43 +287,6 @@ footer {
     padding:30px;
     text-align:center;
     opacity:0.5;
-}
-/* ================= STYLISH CAROUSEL ARROWS ================= */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(10, 31, 68, 0.85);
-    color: white;
-    border: none;
-    font-size: 42px;
-    width: 48px;
-    height: 68px;
-    border-radius: 12px;
-    cursor: pointer;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.carousel-arrow:hover {
-    background: rgba(59, 130, 246, 0.95);
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
-}
-
-.left-arrow  { left: 5px; }
-.right-arrow { right: 5px; }
-
-.carousel-arrow {
-    opacity: 0.8;
-}
-.carousel-arrow:hover {
-    opacity: 1;
 }
 </style>
 </head>
