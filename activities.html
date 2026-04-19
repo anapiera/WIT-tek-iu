@@ -6,14 +6,11 @@
 <link rel="icon" type="image/png" href="btn2.jpg">
 <title>Activities | TEK IU</title>
 
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
+/* RESET */
 * {
     margin:0;
     padding:0;
@@ -27,9 +24,7 @@ body {
     padding-top:90px;
 }
 
-/* =========================
-   NAVBAR (SAME AS INDEX)
-========================= */
+/* NAVBAR (UNCHANGED) */
 nav {
     position:fixed;
     top:0;
@@ -46,24 +41,21 @@ nav {
 
 .nav-logo img {
     height:70px;
-    object-fit:contain;
 }
 
 .nav-links {
     display:flex;
-    align-items:center;
     gap:30px;
+    align-items:center;
 }
 
 .nav-links a {
     color:white;
     text-decoration:none;
     font-size:15px;
-    font-weight:500;
     position:relative;
 }
 
-/* WHITE HOVER */
 .nav-links a::after {
     content:'';
     position:absolute;
@@ -90,121 +82,120 @@ nav {
     color:#0a1f44;
 }
 
-/* =========================
-   HERO HEADER
-========================= */
+/* HERO */
 .page-hero {
     text-align:center;
-    padding:120px 20px 40px;  
+    padding:120px 20px 40px;
 }
 
 .page-hero h1 {
     font-size:3rem;
-    margin-bottom:10px;
 }
 
-.page-hero p {
-    opacity:0.7;
-    letter-spacing:2px;
-}
-
-/* =========================
-   SECTION
-========================= */
+/* SECTION */
 .section {
     max-width:1100px;
     margin:auto;
     padding:40px 20px;
 }
-.light-section {
-    background:#dbe6f2;
-    color:#0a1f44;
-    padding:60px 20px;
-    border-radius:20px;
-}
 
-.section h2 {
-    text-align:center;
-    margin-bottom:30px;
-}
+/* ================= GLASS STACK ================= */
 
-/* =========================
-   CAROUSEL
-========================= */
-.carousel {
+.carousel-wrapper {
     position:relative;
+    height:440px;
+    margin-top:30px;
+}
+
+/* CENTER BASE */
+.card {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:320px;
+    height:380px;
+    border-radius:18px;
     overflow:hidden;
+    cursor:pointer;
+    transition:0.6s ease;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
 }
 
-.slide {
-    display:none;
-}
-
-.slide.active {
-    display:block;
-}
-
-.slide img {
+/* IMAGE */
+.card img {
     width:100%;
-    height:400px;
+    height:100%;
     object-fit:cover;
-    border-radius:12px;
+    opacity:0.9;
 }
 
-/* TEXT OVERLAY */
-.overlay {
+/* TEXT */
+.card-overlay {
     position:absolute;
     bottom:0;
     width:100%;
     padding:20px;
-    background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);
 }
 
-.overlay h3 {
-    color:white;
-    font-weight:600;
+/* STATES */
+.card.center {
+    transform:translate(-50%, -50%) scale(1);
+    z-index:3;
+    opacity:1;
 }
 
-.overlay p {
-    color:rgba(255,255,255,0.85);
-    font-size:14px;
+.card.left {
+    transform:translate(calc(-50% - 260px), -50%) scale(0.85);
+    opacity:0.45;
+    z-index:2;
 }
 
-/* ARROWS */
-.prev, .next {
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.5);
-    border:none;
-    color:white;
-    font-size:28px;
-    padding:10px;
-    cursor:pointer;
-    border-radius:50%;
+.card.right {
+    transform:translate(calc(-50% + 260px), -50%) scale(0.85);
+    opacity:0.45;
+    z-index:2;
 }
 
-.prev { left:10px; }
-.next { right:10px; }
-
-/* =========================
-   CALENDAR
-========================= */
-.calendar-container {
-    margin-top:20px;
-    border-radius:15px;
-    overflow:hidden;
+.card.hidden {
+    opacity:0;
+    pointer-events:none;
 }
 
+/* HOVER GLOW */
+.card.center:hover {
+    transform:translate(-50%, -50%) scale(1.07);
+    box-shadow:
+        0 0 50px rgba(59,130,246,0.4),
+        0 30px 60px rgba(0,0,0,0.7);
+}
+
+/* FLOAT EFFECT */
+@keyframes float {
+    0% { transform:translate(-50%, -52%); }
+    50% { transform:translate(-50%, -48%); }
+    100% { transform:translate(-50%, -52%); }
+}
+
+.card.center {
+    animation:float 6s ease-in-out infinite;
+}
+
+/* ================= CALENDAR ================= */
 .calendar-container iframe {
     width:100%;
     height:600px;
     border:none;
+    border-radius:15px;
 }
 
-/* =========================
-   GALLERY
-========================= */
+/* ================= GALLERY ================= */
 .gallery {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -237,9 +228,7 @@ nav {
     max-height:90%;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 footer {
     padding:30px;
     text-align:center;
@@ -251,88 +240,81 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
 <div class="nav-logo">
-    <a href="index.html">
-        <img src="btn.png" alt="TEK Logo">
-    </a>
+<a href="index.html"><img src="btn.png"></a>
 </div>
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="members.html">Members</a>
-        <a href="activities.html">Activities</a>
-        <a href="connect.html" class="connect-btn">Connect</a>
-    </div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="members.html">Members</a>
+<a href="activities.html">Activities</a>
+<a href="connect.html" class="connect-btn">Connect</a>
+</div>
 </nav>
 
-<!-- HEADER -->
+<!-- HERO -->
 <section class="page-hero">
-    <h1>Activities</h1>
+<h1>Activities</h1>
 </section>
 
-<!-- ACCOMPLISHMENTS -->
-<section class="section light-section">
-<h2>Accomplishments</h2>
+<!-- GLASS CARDS -->
+<section class="section">
 
-<div class="carousel">
+<div class="carousel-wrapper">
 
-<div class="slide active">
+<div class="card center" onclick="openCard(this)">
 <img src="acomplishments/acomp1.jpg">
-<div class="overlay">
+<div class="card-overlay">
 <h3>Kirsten Jackson</h3>
-<p>Pledge Class President — Spring 2026</p>
+<p>Elected Pledge Class President for Spring 2026, leading the Alpha Class and establishing TEK’s foundation at IU.</p>
 </div>
 </div>
 
-<div class="slide">
+<div class="card right" onclick="move(1)">
 <img src="acomplishments/acomp2.jpg">
-<div class="overlay">
+<div class="card-overlay">
 <h3>Monish Malla</h3>
-<p>Certificate of Academic Excellence</p>
+<p>Recipient of the Luddy School Certificate of Academic Excellence for outstanding academic performance.</p>
 </div>
 </div>
 
-<div class="slide">
+<div class="card hidden" onclick="move(1)">
 <img src="acomplishments/acomp3.jpg">
-<div class="overlay">
+<div class="card-overlay">
 <h3>Tessa Troyer</h3>
-<p>BMO Wealth Management Intern</p>
+<p>Incoming BMO Wealth Management Intern, gaining elite experience in financial advisory and strategy.</p>
 </div>
 </div>
 
-<div class="slide">
+<div class="card hidden" onclick="move(1)">
 <img src="acomplishments/acomp4.jpg">
-<div class="overlay">
+<div class="card-overlay">
 <h3>Katie Castro</h3>
-<p>La Plaza Summer Intern</p>
+<p>Selected for the La Plaza Discovery Program, contributing to impactful community initiatives.</p>
 </div>
 </div>
 
-<div class="slide">
+<div class="card left" onclick="move(-1)">
 <img src="acomplishments/acomp5.jpg">
-<div class="overlay">
+<div class="card-overlay">
 <h3>Johnny Zheng</h3>
-<p>Presented Research at Luddy Fair</p>
+<p>Presented undergraduate research at the Luddy Poster Fair, highlighting innovation and technical excellence.</p>
 </div>
 </div>
 
-<button class="prev" onclick="changeSlide(-1)">❮</button>
-<button class="next" onclick="changeSlide(1)">❯</button>
-
 </div>
+
 </section>
 
 <!-- CALENDAR -->
 <section class="section">
 <h2>Event Calendar</h2>
-
 <div class="calendar-container">
 <iframe src="https://calendar.google.com/calendar/embed?src=c_7fb44bde612d6a31c4f5e7dee1338a38a403700f0a071010b294bcfddc7c74b1%40group.calendar.google.com"></iframe>
 </div>
-
 </section>
 
 <!-- GALLERY -->
@@ -340,36 +322,18 @@ footer {
 <h2>Gallery</h2>
 
 <div class="gallery">
-
 <img src="gallery/IMG-2511.JPG" onclick="openModal(this.src)">
-
 <img src="gallery/20260412-014203-1A2799.JPEG" onclick="openModal(this.src)">
-
 <img src="gallery/20260330-234325-16F5BF.JPEG" onclick="openModal(this.src)">
-
 <img src="gallery/20260330-212138-1EC715.JPEG" onclick="openModal(this.src)">
-
 <img src="gallery/20260330-212138-14360D.JPEG" onclick="openModal(this.src)">
-
-<img src="gallery/20260330_160545_1B6FBB.JPEG" onclick="openModal(this.src)">
-
-<img src="gallery/20260330_212138_1E299B.JPEG" onclick="openModal(this.src)">
-
-<img src="gallery/20260330_212138_1EC38D.JPEG" onclick="openModal(this.src)">
-
-<img src="gallery/20260330_212138_1EF9A2.JPEG" onclick="openModal(this.src)">
-
-<img src="gallery/20260331-073425-139550.JPEG" onclick="openModal(this.src)">
-
-<img src="gallery/20260331_201550_1B5CFB.JPEG" onclick="openModal(this.src)">
-
 </div>
 
 </section>
 
 <!-- MODAL -->
 <div id="modal" onclick="this.style.display='none'">
-    <img id="modalImg">
+<img id="modalImg">
 </div>
 
 <footer>
@@ -378,31 +342,39 @@ footer {
 
 <script>
 
-/* CAROUSEL */
-let slides = document.querySelectorAll(".slide");
+let cards = document.querySelectorAll(".card");
 let index = 0;
 
-function showSlide(i) {
-    slides.forEach(s => s.classList.remove("active"));
-    slides[i].classList.add("active");
+function updateCards() {
+    cards.forEach(c => c.className = "card hidden");
+
+    let prev = (index - 1 + cards.length) % cards.length;
+    let next = (index + 1) % cards.length;
+
+    cards[index].className = "card center";
+    cards[prev].className = "card left";
+    cards[next].className = "card right";
 }
 
-function changeSlide(dir) {
-    index += dir;
-    if(index < 0) index = slides.length - 1;
-    if(index >= slides.length) index = 0;
-    showSlide(index);
+function move(dir) {
+    index = (index + dir + cards.length) % cards.length;
+    updateCards();
 }
 
+/* AUTO ROTATE */
 setInterval(() => {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-}, 5000);
+    move(1);
+}, 4500);
 
 /* MODAL */
 function openModal(src){
     document.getElementById("modal").style.display = "flex";
     document.getElementById("modalImg").src = src;
+}
+
+function openCard(card){
+    let img = card.querySelector("img").src;
+    openModal(img);
 }
 
 </script>
