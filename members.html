@@ -122,15 +122,29 @@ nav {
     margin-bottom: 50px;
     font-weight: 600;
 }
+/* =========================
+   SECTION CONTAINER (FIX)
+========================= */
+.section {
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
 
+/* SECTION HEADERS */
+.section h2 {
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2rem;
+}
 /* =========================
    EXEC GRID 
 ========================= */
 .exec-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    justify-items: center;   /* helps center cards nicely */
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:30px;
+    justify-items:center; 
 }
 
 /* =========================
