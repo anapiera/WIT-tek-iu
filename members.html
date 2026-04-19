@@ -114,12 +114,13 @@ nav {
 /* =========================
    EXEC GRID (FIXED)
 ========================= */
-.exec-grid{
+.exec-grid {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
     gap:30px;
-}
 
+    align-items:stretch;
+}
 /* =========================
    EXEC CARD
 ========================= */
@@ -133,9 +134,12 @@ nav {
     display:flex;
     flex-direction:column;
     align-items:center;
+    justify-content:space-between; /* KEY FIX */
 
-    max-width:300px;   
-    margin:auto;       
+    height:100%; /* KEY FIX */
+    
+    max-width:300px;
+    margin:auto;
 
     transition:.3s;
 }
@@ -163,6 +167,7 @@ nav {
     margin-bottom:10px;
     opacity:0.8;
 }
+
 /* =========================
    MEMBERS GRID
 ========================= */
