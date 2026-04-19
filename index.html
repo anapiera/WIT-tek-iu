@@ -38,7 +38,7 @@ nav {
     justify-content:space-between;
     align-items:center;
 
-    padding:18px 60px;
+    padding:14px 60px; /* adjusted for bigger logo */
 
     background:rgba(10,31,68,0.75);
     backdrop-filter:blur(14px);
@@ -48,9 +48,10 @@ nav {
     z-index:1000;
 }
 
-/* LOGO LEFT */
+/* LOGO LEFT (BIGGER) */
 .nav-logo img {
-    height:42px;
+    height:58px;
+    object-fit:contain;
 }
 
 /* RIGHT NAV LINKS */
@@ -113,7 +114,7 @@ nav {
     background: url("logo.jpg") center/cover no-repeat;
 }
 
-/* DARK OVERLAY (important for readability) */
+/* DARK OVERLAY */
 .hero::before {
     content:'';
     position:absolute;
