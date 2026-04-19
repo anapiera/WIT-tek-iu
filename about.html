@@ -31,7 +31,7 @@ body {
 }
 
 /* =========================
-   NAVBAR (SAME AS INDEX)
+   NAVBAR
 ========================= */
 nav {
     position:fixed;
@@ -49,7 +49,6 @@ nav {
 
 .nav-logo img {
     height:70px;
-    object-fit:contain;
 }
 
 .nav-links {
@@ -62,11 +61,10 @@ nav {
     color:white;
     text-decoration:none;
     font-size:15px;
-    font-weight:500;
     position:relative;
 }
 
-/* WHITE HOVER */
+/* hover underline */
 .nav-links a::after {
     content:'';
     position:absolute;
@@ -94,17 +92,15 @@ nav {
 }
 
 /* =========================
-   HERO HEADER
+   HERO
 ========================= */
 .page-hero {
-    padding-top:140px;
-    padding-bottom:80px;
+    padding:140px 20px 80px;
     text-align:center;
 }
 
 .page-hero h1 {
     font-size:3rem;
-    margin-bottom:10px;
 }
 
 .page-hero p {
@@ -113,7 +109,7 @@ nav {
 }
 
 /* =========================
-   ABOUT GRID
+   ABOUT CARDS
 ========================= */
 .about-container {
     max-width:1100px;
@@ -125,36 +121,30 @@ nav {
     padding-bottom:100px;
 }
 
-/* CARD */
 .about-card {
     background:rgba(255,255,255,0.05);
     padding:30px;
     border-radius:16px;
     width:300px;
-
-    backdrop-filter:blur(12px);
-
     text-align:center;
-
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.06);
     transition:0.3s;
 }
 
 .about-card:hover {
-    transform:translateY(-10px);
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ICON */
 .about-icon {
     width:70px;
     height:70px;
     margin:0 auto 20px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:50%;
-
     background:rgba(255,255,255,0.08);
     font-size:28px;
 }
@@ -164,25 +154,11 @@ nav {
     color:#0a1f44;
 }
 
-/* TEXT */
-.about-card h3 {
-    margin-bottom:10px;
-}
-
 .about-card p {
     opacity:0.75;
     line-height:1.6;
 }
 
-/* =========================
-   FOOTER
-========================= */
-footer {
-    padding:30px;
-    text-align:center;
-    opacity:0.5;
-    font-size:14px;
-}
 /* =========================
    HISTORY SECTION
 ========================= */
@@ -196,11 +172,10 @@ footer {
     margin:auto;
     display:flex;
     gap:60px;
-    align-items:flex-start;
     flex-wrap:wrap;
 }
 
-/* TIMELINE */
+/* timeline */
 .timeline {
     position:relative;
     min-width:120px;
@@ -218,8 +193,8 @@ footer {
 .timeline-item {
     display:flex;
     align-items:center;
-    gap:12px;
-    margin-bottom:40px;
+    gap:10px;
+    margin-bottom:30px;
 }
 
 .timeline-dot {
@@ -235,7 +210,7 @@ footer {
     opacity:0.7;
 }
 
-/* CONTENT */
+/* content */
 .history-content {
     flex:1;
 }
@@ -251,17 +226,14 @@ footer {
     margin-bottom:20px;
 }
 
-/* FOUNDER CARD */
+/* founder card */
 .founder-card {
     margin-top:30px;
     padding:25px;
     border-radius:16px;
-
     background:rgba(255,255,255,0.06);
     backdrop-filter:blur(14px);
-
     border:1px solid rgba(255,255,255,0.08);
-
     transition:0.3s;
 }
 
@@ -270,64 +242,49 @@ footer {
     box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-.founder-card h4 {
-    margin-bottom:10px;
-}
-
 /* =========================
-   SMALL UPGRADE TO CARDS
+   FOOTER
 ========================= */
-.about-card {
-    border:1px solid rgba(255,255,255,0.06);
+footer {
+    padding:30px;
+    text-align:center;
+    opacity:0.5;
+    font-size:14px;
 }
 
-.about-card:hover {
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 <nav>
-
 <div class="nav-logo">
     <a href="index.html">
         <img src="btn.png" alt="TEK Logo">
     </a>
 </div>
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="members.html">Members</a>
-        <a href="activities.html">Activities</a>
-        <a href="connect.html" class="connect-btn">Connect</a>
-    </div>
-
+<div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="members.html">Members</a>
+    <a href="activities.html">Activities</a>
+    <a href="connect.html" class="connect-btn">Connect</a>
+</div>
 </nav>
 
-<!-- =========================
-     HERO HEADER
-========================= -->
+<!-- HERO -->
 <section class="page-hero">
     <h1>About TEK</h1>
     <p>Technology • Business • Innovation</p>
 </section>
 
-<!-- =========================
-     ABOUT CONTENT (UPGRADED)
-========================= -->
+<!-- ABOUT -->
 <section class="about-container">
 
     <div class="about-card">
-        <div class="about-icon">
-            <i class="fas fa-users"></i>
-        </div>
+        <div class="about-icon"><i class="fas fa-users"></i></div>
         <h3>Who We Are</h3>
         <p>
         Tau Epsilon Kappa (TEK) at Indiana University is a selective, co-ed professional technology fraternity built for students who want to go beyond the classroom.
@@ -335,9 +292,7 @@ footer {
     </div>
 
     <div class="about-card">
-        <div class="about-icon">
-            <i class="fas fa-laptop-code"></i>
-        </div>
+        <div class="about-icon"><i class="fas fa-laptop-code"></i></div>
         <h3>What We Do</h3>
         <p>
         We host technical workshops, industry panels, and hands-on projects that prepare our members for top careers in tech and business.
@@ -345,9 +300,7 @@ footer {
     </div>
 
     <div class="about-card">
-        <div class="about-icon">
-            <i class="fas fa-network-wired"></i>
-        </div>
+        <div class="about-icon"><i class="fas fa-network-wired"></i></div>
         <h3>Our Community</h3>
         <p>
         TEK is a network of ambitious students who collaborate, support one another, and build lifelong professional connections.
@@ -356,14 +309,10 @@ footer {
 
 </section>
 
-<!-- =========================
-     OUR HISTORY (NEW SECTION)
-========================= -->
+<!-- HISTORY -->
 <section class="history-section">
-
     <div class="history-container">
 
-        <!-- LEFT TIMELINE -->
         <div class="timeline">
             <div class="timeline-line"></div>
 
@@ -383,40 +332,35 @@ footer {
             </div>
         </div>
 
-        <!-- RIGHT CONTENT -->
         <div class="history-content">
 
             <h2>From One Idea to a Growing Legacy</h2>
 
             <p>
-            Tau Epsilon Kappa at Indiana University began with a simple but ambitious vision — to create a space where students passionate about technology, innovation, and professional growth could come together and build something meaningful.
+            Tau Epsilon Kappa at Indiana University began with a vision — to build a community where students passionate about technology and innovation could grow together.
             </p>
 
             <p>
-            Founded by <strong>Nair and Alekya</strong>, the IU chapter represents the <strong>Beta Chapter</strong> of Tau Epsilon Kappa, marking the expansion of a rapidly growing organization beyond its origins.
+            Founded by <strong>Neeharika Nair and Alekhya Vadiala</strong>, the IU chapter represents the <strong>Beta Chapter</strong> of Tau Epsilon Kappa.
             </p>
 
             <p>
-            What started as an idea quickly turned into action — bringing together driven students who wanted more than just a resume line. They wanted connection, opportunity, and a community that would push them to grow.
+            What started as an idea quickly became a movement — bringing together driven students seeking more than just a resume boost.
             </p>
 
-            <!-- FOUNDER CARD -->
             <div class="founder-card">
                 <h4>Founding Vision</h4>
                 <p>
-                Built on ambition, collaboration, and innovation, TEK IU was created to empower students to grow professionally, build meaningful relationships, and shape the future of technology.
+                TEK IU was built to empower students, foster collaboration, and create lasting impact on campus and beyond.
                 </p>
             </div>
 
         </div>
 
     </div>
-
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 <footer>
 © 2026 Tau Epsilon Kappa — Indiana University
 </footer>
