@@ -310,13 +310,13 @@ footer {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(10, 31, 68, 0.75);   /* matches your dark theme */
+    background: rgba(10, 31, 68, 0.85);
     color: white;
     border: none;
-    font-size: 42px;                      /* bigger, more stylish arrows */
+    font-size: 42px;
     width: 48px;
     height: 68px;
-    border-radius: 12px;                  /* softer rectangle, not circle */
+    border-radius: 12px;
     cursor: pointer;
     z-index: 20;
     display: flex;
@@ -328,22 +328,22 @@ footer {
 }
 
 .carousel-arrow:hover {
-    background: rgba(59, 130, 246, 0.95);   /* nice blue hover */
+    background: rgba(59, 130, 246, 0.95);
     transform: translateY(-50%) scale(1.08);
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
 }
 
+/* Move arrows CLOSER to the images */
 .left-arrow  { 
-    left: 20px;     /* closer to the image */
+    left: 40px;     /* ← Change this number if still too far */
 }
 
 .right-arrow { 
-    right: 20px;    /* closer to the image */
+    right: 40px;    /* ← Change this number if still too far */
 }
 
-/* Make arrows slightly see-through until hovered */
 .carousel-arrow {
-    opacity: 0.75;
+    opacity: 0.8;
 }
 .carousel-arrow:hover {
     opacity: 1;
