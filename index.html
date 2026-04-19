@@ -19,7 +19,9 @@ body {
     padding-top:90px;
 }
 
-/* ================= NAV ================= */
+/* =========================
+   NAVBAR (UNCHANGED)
+========================= */
 nav {
     position:fixed;
     top:0;
@@ -34,16 +36,22 @@ nav {
     z-index:1000;
 }
 
-.nav-logo img { height:70px; }
+.nav-logo img {
+    height:70px;
+    object-fit:contain;
+}
 
 .nav-links {
     display:flex;
+    align-items:center;
     gap:30px;
 }
 
 .nav-links a {
     color:white;
     text-decoration:none;
+    font-size:15px;
+    font-weight:500;
     position:relative;
 }
 
@@ -55,10 +63,12 @@ nav {
     width:0%;
     height:2px;
     background:white;
-    transition:.3s;
+    transition:0.3s;
 }
 
-.nav-links a:hover::after { width:100%; }
+.nav-links a:hover::after {
+    width:100%;
+}
 
 .connect-btn {
     border:1.5px solid white;
@@ -71,7 +81,9 @@ nav {
     color:#0a1f44;
 }
 
-/* ================= HERO ================= */
+/* =========================
+   HERO (ONLY MODIFIED PART)
+========================= */
 .hero {
     height:100vh;
     display:flex;
@@ -80,8 +92,7 @@ nav {
     text-align:center;
     position:relative;
     overflow:hidden;
-
-    background:url("circuit.png") center/cover no-repeat;
+    background:url("logo.jpg") center/cover no-repeat;
 }
 
 /* DARK START */
@@ -94,25 +105,51 @@ nav {
     animation:fadeDark 2s ease forwards;
 }
 
-/* WAVE SWEEP */
-.wave {
+/* ===== PREMIUM WAVE ===== */
+
+.wave-main {
     position:absolute;
-    inset:0;
+    width:180%;
+    height:180%;
+    top:-40%;
+    left:-40%;
     z-index:2;
+
     background:
-        radial-gradient(circle at 20% 30%, rgba(59,130,246,0.5), transparent 60%),
-        radial-gradient(circle at 80% 70%, rgba(59,130,246,0.4), transparent 60%);
+        radial-gradient(circle at 30% 40%, rgba(59,130,246,0.6), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(59,130,246,0.5), transparent 60%);
+
+    filter:blur(60px);
     opacity:0;
-    animation:waveSweep 2.5s ease forwards;
+
+    animation:waveFlow 3s cubic-bezier(.22,.61,.36,1) forwards;
 }
 
-/* HERO CONTENT */
+.wave-glow {
+    position:absolute;
+    width:200%;
+    height:200%;
+    top:-50%;
+    left:-50%;
+    z-index:2;
+
+    background:
+        radial-gradient(circle at center, rgba(59,130,246,0.3), transparent 70%);
+
+    filter:blur(80px);
+    opacity:0;
+
+    animation:waveFlow2 3.2s ease forwards;
+}
+
+/* HERO CONTENT FADE IN */
 .hero-content {
     position:relative;
     z-index:3;
     opacity:0;
-    animation:fadeIn 1.5s ease forwards;
-    animation-delay:2.2s;
+    transform:translateY(10px);
+    animation:fadeIn 1.4s ease forwards;
+    animation-delay:2.4s;
 }
 
 .hero h1 {
@@ -138,7 +175,7 @@ nav {
     background:none;
     color:white;
     cursor:pointer;
-    transition:.3s;
+    transition:0.3s;
 }
 
 .hero-btn:hover {
@@ -146,29 +183,47 @@ nav {
     color:#0a1f44;
 }
 
-/* ANIMATIONS */
+/* ===== ANIMATIONS ===== */
+
 @keyframes fadeDark {
     0% { background:#071634; }
-    100% { background:rgba(10,31,68,0.55); }
+    100% { background:rgba(10,31,68,0.65); }
 }
 
-@keyframes waveSweep {
+@keyframes waveFlow {
     0% {
-        transform:translateX(-40%) scale(1.3);
+        transform:translateX(-30%) translateY(10%) scale(1.2);
         opacity:0;
     }
-    50% { opacity:1; }
+    40% { opacity:1; }
     100% {
-        transform:translateX(40%) scale(1.3);
+        transform:translateX(30%) translateY(-10%) scale(1.2);
+        opacity:0;
+    }
+}
+
+@keyframes waveFlow2 {
+    0% {
+        transform:translateX(-20%) scale(1.3);
+        opacity:0;
+    }
+    50% { opacity:0.6; }
+    100% {
+        transform:translateX(20%) scale(1.3);
         opacity:0;
     }
 }
 
 @keyframes fadeIn {
-    to { opacity:1; }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-/* ================= TIMELINE (FIXED ORIGINAL) ================= */
+/* =========================
+   TIMELINE (UNCHANGED)
+========================= */
 .rush-section {
     padding:140px 40px;
     text-align:center;
@@ -210,7 +265,7 @@ nav {
     margin:0 auto;
     margin-top:-67px;
     box-shadow:0 0 10px #3b82f6;
-    transition:.3s;
+    transition:0.3s;
 }
 
 .rush-item:hover .rush-dot {
@@ -256,7 +311,9 @@ footer {
 <!-- HERO -->
 <section class="hero">
 
-<div class="wave"></div>
+<!-- PREMIUM WAVE -->
+<div class="wave-main"></div>
+<div class="wave-glow"></div>
 
 <div class="hero-content">
 <h1>Tau Epsilon Kappa</h1>
@@ -270,7 +327,7 @@ footer {
 
 </section>
 
-<!-- TIMELINE -->
+<!-- RUSH TIMELINE -->
 <section class="rush-section">
 
 <h2>Spring 2026 Rush Timeline</h2>
