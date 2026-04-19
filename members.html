@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Members | TEK IU</title>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
+
+body {
+    background:#0a1f44;
+    color:white;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 60px;
+    background:rgba(10,31,68,0.75);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index:1000;
+}
+
+.nav-logo img {
+    height:58px;
+}
+
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a {
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    position:relative;
+}
+
+.nav-links a::after {
+    content:'';
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:white;
+    transition:0.3s;
+}
+
+.nav-links a:hover::after {
+    width:100%;
+}
+
+.connect-btn {
+    border:1.5px solid white;
+    padding:8px 18px;
+    border-radius:6px;
+}
+
+.connect-btn:hover {
+    background:white;
+    color:#0a1f44;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+.page-hero {
+    padding-top:140px;
+    padding-bottom:60px;
+    text-align:center;
+}
+
+.page-hero h1 {
+    font-size:3rem;
+}
+
+/* =========================
+   EXEC BOARD
+========================= */
+.section {
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.section h2 {
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2rem;
+}
+
+/* EXEC GRID */
+.exec-grid {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+/* EXEC CARD */
+.exec-card {
+    width:260px;
+    background:rgba(255,255,255,0.06);
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    backdrop-filter:blur(12px);
+    transition:0.3s;
+}
+
+.exec-card:hover {
+    transform:translateY(-10px);
+}
+
+/* IMAGE */
+.exec-card img {
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+/* TEXT */
+.exec-card h3 {
+    margin-bottom:5px;
+}
+
+.exec-card p {
+    opacity:0.7;
+    margin-bottom:8px;
+}
+
+/* LINK */
+.exec-card a {
+    font-size:14px;
+    opacity:0.7;
+    text-decoration:none;
+    color:white;
+}
+
+.exec-card a:hover {
+    opacity:1;
+}
+
+/* =========================
+   MEMBERS GRID
+========================= */
+.members-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* MEMBER CARD */
+.member-card {
+    background:rgba(255,255,255,0.05);
+    padding:15px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.member-card:hover {
+    transform:translateY(-5px);
+}
+
+.member-card strong {
+    display:block;
+    margin-bottom:5px;
+}
+
+.member-card a {
+    font-size:13px;
+    opacity:0.7;
+    color:white;
+    text-decoration:none;
+}
+
+.member-card a:hover {
+    opacity:1;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding:30px;
+    text-align:center;
+    opacity:0.5;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-logo">
+        <img src="btn.png">
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="members.html">Members</a>
+        <a href="activities.html">Activities</a>
+        <a href="connect.html" class="connect-btn">Connect</a>
+    </div>
+</nav>
+
+<!-- HEADER -->
+<section class="page-hero">
+    <h1>Members</h1>
+</section>
+
+<!-- EXEC -->
+<section class="section">
+<h2>Executive Board</h2>
+
+<div class="exec-grid">
+
+<div class="exec-card">
+<img src="exec/Niki_N_hs.jpg">
+<h3>Neeharika Nair</h3>
+<p>President</p>
+<a href="https://www.linkedin.com/in/neeharikanair/">LinkedIn</a>
+</div>
+
+<div class="exec-card">
+<img src="exec/Alekhya_V_hs.jpg">
+<h3>Alekhya Vadiala</h3>
+<p>Executive VP</p>
+<a href="https://www.linkedin.com/in/alekhya-vadiala-176999324/">LinkedIn</a>
+</div>
+
+<div class="exec-card">
+<img src="exec/Caroline_C_hs.jpg">
+<h3>Caroline Conway</h3>
+<p>VP Social Engagement</p>
+<a href="https://www.linkedin.com/in/carolineconway2006/">LinkedIn</a>
+</div>
+
+<div class="exec-card">
+<img src="exec/Tessa_T_hs.jpg">
+<h3>Tessa Troyer</h3>
+<p>VP Finance</p>
+<a href="https://www.linkedin.com/in/tessa-troyer-vw/">LinkedIn</a>
+</div>
+
+<div class="exec-card">
+<img src="exec/Genny_F_hs.jpg">
+<h3>Genny Foulk</h3>
+<p>VP Operations</p>
+<a href="https://www.linkedin.com/in/genny-foulk-2073ba348/">LinkedIn</a>
+</div>
+
+<div class="exec-card">
+<img src="exec/Martin_V_hs.jpg">
+<h3>Martin Vidal</h3>
+<p>VP Professional Dev</p>
+<a href="https://www.linkedin.com/in/martin-vidal-luddy/">LinkedIn</a>
+</div>
+
+<div class="exec-card">
+<img src="exec/Tanner_G_hs.jpg">
+<h3>Tanner Gault</h3>
+<p>VP Recruitment</p>
+<a href="https://www.linkedin.com/in/tannergault/">LinkedIn</a>
+</div>
+
+<div class="exec-card">
+<img src="exec/Jaiden_M_hs.jpg">
+<h3>Jaiden Medina</h3>
+<p>VP Technical Dev</p>
+<a href="https://www.linkedin.com/in/jaiden-medina/">LinkedIn</a>
+</div>
+
+</div>
+</section>
+
+<!-- MEMBERS -->
+<section class="section">
+<h2>All Members</h2>
+
+<div class="members-grid">
+
+<div class="member-card"><strong>Alexa Napieralski</strong>Data Science<br><a href="https://www.linkedin.com/in/alexa-napieralski/">LinkedIn</a></div>
+<div class="member-card"><strong>Andrew Borgsdorf</strong><a href="https://www.linkedin.com/in/andrew-borgsdorf/">LinkedIn</a></div>
+<div class="member-card"><strong>Andrew Pasnik</strong><a href="https://www.linkedin.com/in/andrew-pasnik/">LinkedIn</a></div>
+<div class="member-card"><strong>Bella Saauer</strong><a href="https://www.linkedin.com/in/isabella-sauer/">LinkedIn</a></div>
+<div class="member-card"><strong>Ben Rimmington</strong>Computer Science<br><a href="https://www.linkedin.com/in/benjamin-rimington/">LinkedIn</a></div>
+<div class="member-card"><strong>Connor Prodoehl</strong>Operations Management<br><a href="https://www.linkedin.com/in/connorprodoehl/">LinkedIn</a></div>
+<div class="member-card"><strong>Daven Sproull</strong><a href="https://www.linkedin.com/in/daven-sproull-870a87309/">LinkedIn</a></div>
+<div class="member-card"><strong>David Akinfisoye</strong>Informatics<br><a href="https://www.linkedin.com/in/davidakinfisoye/">LinkedIn</a></div>
+<div class="member-card"><strong>Gabrielle Roose</strong>Informatics & Marketing<br><a href="https://www.linkedin.com/in/gabrielleroose/">LinkedIn</a></div>
+<div class="member-card"><strong>Grace Roudebush</strong>Cybersecurity & Global Policy<br><a href="https://www.linkedin.com/in/graceroudebush/">LinkedIn</a></div>
+<div class="member-card"><strong>Harkhush Singh</strong>Informatics<br><a href="https://www.linkedin.com/in/harkhush-singh/">LinkedIn</a></div>
+<div class="member-card"><strong>Ibrahim Doukoure</strong>Informatics<br><a href="https://www.linkedin.com/in/ibrahim-doukoure-69101632a/">LinkedIn</a></div>
+<div class="member-card"><strong>Jack Wember</strong><a href="https://www.linkedin.com/in/jack-wember/">LinkedIn</a></div>
+<div class="member-card"><strong>Jacob Jenkins</strong>Supply Chain & Business Analytics<br><a href="https://www.linkedin.com/in/jacob-g-jenkins/">LinkedIn</a></div>
+<div class="member-card"><strong>Jezel Lopez</strong><a href="https://www.linkedin.com/in/jezel-lopez/">LinkedIn</a></div>
+<div class="member-card"><strong>Johnny Zheng</strong>Computer Science<br><a href="https://www.linkedin.com/in/jnzheng/">LinkedIn</a></div>
+<div class="member-card"><strong>Josh Lindley</strong><a href="https://www.linkedin.com/in/josh-lindley/">LinkedIn</a></div>
+<div class="member-card"><strong>Katie Castro</strong><a href="https://www.linkedin.com/in/katie-castro1/">LinkedIn</a></div>
+<div class="member-card"><strong>Kirsten Jackson</strong><a href="https://www.linkedin.com/in/kirsten-grace-jackson/">LinkedIn</a></div>
+<div class="member-card"><strong>Lavanya Nahar</strong><a href="https://www.linkedin.com/in/lavanya-nahar/">LinkedIn</a></div>
+<div class="member-card"><strong>Litzy Martinez</strong>Computer Science<br><a href="https://www.linkedin.com/in/litzy-martinez-49105a31b/">LinkedIn</a></div>
+<div class="member-card"><strong>Logan Reddell</strong><a href="https://www.linkedin.com/in/loganreddell/">LinkedIn</a></div>
+<div class="member-card"><strong>Lois Carr</strong><a href="https://www.linkedin.com/in/lois-carr/">LinkedIn</a></div>
+<div class="member-card"><strong>Maddy Nizza</strong><a href="https://www.linkedin.com/in/madelinenizza/">LinkedIn</a></div>
+<div class="member-card"><strong>Matthew Daudelin</strong><a href="https://www.linkedin.com/in/matthew-daudelin-4434b73b5/">LinkedIn</a></div>
+<div class="member-card"><strong>Mia Schlessinger</strong>Informatics<br><a href="https://www.linkedin.com/in/mia-schlessinger-266aa0393/">LinkedIn</a></div>
+<div class="member-card"><strong>Mike Weyne</strong><a href="https://www.linkedin.com/in/michael-weyne-2b23a8356/">LinkedIn</a></div>
+<div class="member-card"><strong>Monish Malla</strong><a href="https://www.linkedin.com/in/monish-malla/">LinkedIn</a></div>
+<div class="member-card"><strong>Nathan Udal</strong>ISE<br><a href="https://www.linkedin.com/in/nathan-udal-abb94b384/">LinkedIn</a></div>
+<div class="member-card"><strong>Neve Blum</strong><a href="https://www.linkedin.com/in/neve-blum-179143366/">LinkedIn</a></div>
+<div class="member-card"><strong>Peri Small</strong><a href="https://www.linkedin.com/in/peri-small/">LinkedIn</a></div>
+<div class="member-card"><strong>Priyanka Kansara</strong><a href="https://www.linkedin.com/in/pkansara/">LinkedIn</a></div>
+<div class="member-card"><strong>Rylan Kagan</strong>Informatics<br><a href="https://www.linkedin.com/in/rylankagan/">LinkedIn</a></div>
+<div class="member-card"><strong>Sam Mellon</strong><a href="https://www.linkedin.com/in/sammellon/">LinkedIn</a></div>
+<div class="member-card"><strong>Spencer Goodson</strong>Cybersecurity<br><a href="https://www.linkedin.com/in/spencer-goodson-cyber/">LinkedIn</a></div>
+<div class="member-card"><strong>Tanisha Chandrasekaran</strong>Finance & CS<br><a href="https://www.linkedin.com/in/tanishachandrasekaran/">LinkedIn</a></div>
+<div class="member-card"><strong>Taylor Bishop</strong><a href="https://www.linkedin.com/in/taylor-bishop-/">LinkedIn</a></div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Tau Epsilon Kappa — Indiana University
+</footer>
+
+</body>
+</html>
