@@ -129,7 +129,59 @@ nav {
     perspective:1200px;
     z-index:1;
 }
+/* ================= GLASS ARROWS ================= */
 
+.carousel-arrow {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:10;
+
+    width:48px;
+    height:48px;
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+
+    color:white;
+    font-size:22px;
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+
+/* LEFT / RIGHT POSITIONING */
+.left-arrow {
+    left:20px;
+}
+
+.right-arrow {
+    right:20px;
+}
+
+/* HOVER = "LIQUID GLASS" FEEL */
+.carousel-arrow:hover {
+    background:rgba(59,130,246,0.25);
+    border:1px solid rgba(59,130,246,0.6);
+
+    transform:translateY(-50%) scale(1.15);
+
+    box-shadow:
+        0 0 25px rgba(59,130,246,0.6),
+        0 0 60px rgba(59,130,246,0.3);
+}
+
+/* CLICK FEEDBACK */
+.carousel-arrow:active {
+    transform:translateY(-50%) scale(0.95);
+}
 /* CARD BASE */
 .card {
     position:absolute;
@@ -281,7 +333,13 @@ footer {
 <section class="carousel-section">
 
 <div class="carousel-wrapper">
+<button class="carousel-arrow left-arrow" onclick="move(-1)">
+    &#10094;
+</button>
 
+<button class="carousel-arrow right-arrow" onclick="move(1)">
+    &#10095;
+</button>
 <div class="card center">
 <img src="acomplishments/acomp1.jpg">
 <div class="card-overlay">
@@ -383,12 +441,8 @@ function move(dir) {
 }
 
 /* CLICK ANYWHERE TO MOVE */
-document.querySelector(".carousel-wrapper").addEventListener("click", (e)=>{
-    if(e.clientX < window.innerWidth/2){
-        move(-1);
-    } else {
-        move(1);
-    }
+document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => move(1));
 });
 
 </script>
