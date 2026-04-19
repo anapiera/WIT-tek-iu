@@ -7,7 +7,7 @@
 <title>Connect | TEK IU</title>
 
 <!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -89,43 +89,61 @@ nav {
 }
 
 /* =========================
-   HEADER
-========================= */
-.page-hero {
-    padding-top:140px;
-    padding-bottom:40px;
-    text-align:center;
-}
-
-.page-hero h1 {
-    font-size:3rem;
-}
-
-/* =========================
-   JOIN SECTION
+   JOIN SECTION (NEW DESIGN)
 ========================= */
 .join-section {
     background:#dbe6f2;
     color:#0a1f44;
-    padding:80px 20px;
+    padding:140px 60px 100px;
+}
+
+/* BIG TITLE */
+.join-title {
+    font-size:64px;
+    font-weight:800;
+    max-width:1200px;
+    margin:0 auto 60px;
+}
+
+/* FLEX ROW */
+.join-container {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    max-width:1200px;
+    margin:auto;
+    gap:80px;
+}
+
+/* LEFT TEXT */
+.join-left {
+    flex:1;
+    max-width:550px;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.join-left ul {
+    margin-top:20px;
+    padding-left:20px;
+}
+
+/* RIGHT CTA */
+.join-right {
+    flex:1;
     text-align:center;
 }
 
-.join-section h2 {
-    font-size:2.5rem;
-    margin-bottom:20px;
-}
-
-.join-section p {
-    max-width:700px;
-    margin:auto;
-    line-height:1.6;
+.join-right h2 {
+    font-size:44px;
+    font-weight:700;
     margin-bottom:30px;
 }
 
-/* APPLY BUTTON */
+/* BUTTON */
 .join-btn {
-    padding:16px 40px;
+    display:inline-block;
+    padding:18px 50px;
     background:#0a1f44;
     color:white;
     text-decoration:none;
@@ -168,7 +186,6 @@ nav {
     background:none;
     color:white;
     cursor:pointer;
-    transition:0.3s;
 }
 
 .contact-btn:hover {
@@ -176,14 +193,11 @@ nav {
     color:#0a1f44;
 }
 
-/* SUCCESS MSG */
 #successMsg {
     color:#7CFCB2;
 }
 
-/* =========================
-   ICONS
-========================= */
+/* ICONS */
 .contact-icons {
     margin-top:25px;
     display:flex;
@@ -210,9 +224,24 @@ nav {
     transform:translateY(-5px);
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* MOBILE */
+@media (max-width:900px){
+    .join-title {
+        font-size:40px;
+        text-align:center;
+    }
+
+    .join-container {
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .join-left, .join-right {
+        max-width:100%;
+    }
+}
+
+/* FOOTER */
 footer {
     padding:30px;
     text-align:center;
@@ -239,26 +268,41 @@ footer {
     </div>
 </nav>
 
-<!-- HEADER -->
-<section class="page-hero">
-    <h1>Connect With Us</h1>
-</section>
-
 <!-- JOIN -->
 <section class="join-section">
 
-    <h2>Join Tau Epsilon Kappa</h2>
+    <h1 class="join-title">
+        JOIN THE BROTHERHOOD OF INNOVATION
+    </h1>
 
-    <p>
-    Take the next step in your academic and professional journey. Apply to become part of a community driven by innovation, leadership, and impact.
-    </p>
+    <div class="join-container">
 
-    <!-- ✅ YOUR FORM LINK HERE -->
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScGXLsSIiKPpFVCUp-I80AF2iRffYsyI20rP0e_ZyhRCrk_Iw/closedform" 
-       target="_blank" 
-       class="join-btn">
-       APPLY FOR MEMBERSHIP
-    </a>
+        <div class="join-left">
+            <p>
+            Becoming a member of Tau Epsilon Kappa is the first step toward a future defined by excellence and impact. 
+            We offer more than just a collegiate experience; we provide a springboard for academic achievement and professional prominence.
+            </p>
+
+            <ul>
+                <li>Exclusive Professional Alumni Networking</li>
+                <li>Collaborative Innovation & Research Grants</li>
+                <li>Career Fast-Track & Recruitment Events</li>
+                <li>Global Peer Leadership Opportunities</li>
+                <li>Character & Values Based Mentorship</li>
+            </ul>
+        </div>
+
+        <div class="join-right">
+            <h2>Ready to lead the next generation of innovators?</h2>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScGXLsSIiKPpFVCUp-I80AF2iRffYsyI20rP0e_ZyhRCrk_Iw/closedform"
+               target="_blank"
+               class="join-btn">
+               APPLY FOR MEMBERSHIP
+            </a>
+        </div>
+
+    </div>
 
 </section>
 
@@ -268,7 +312,6 @@ footer {
     <h2>Contact</h2>
 
     <form id="contactForm" class="contact-form">
-
         <input type="text" id="name" placeholder="Name" required>
         <input type="email" id="email" placeholder="Email" required>
         <textarea id="message" placeholder="Message" required></textarea>
@@ -276,12 +319,9 @@ footer {
         <button type="submit" class="contact-btn">Send</button>
 
         <p id="successMsg" style="display:none;">Message sent!</p>
-
     </form>
 
-    <!-- ICONS -->
     <div class="contact-icons">
-
         <a href="mailto:nenair@iu.edu" class="icon-btn">
             <i class="fas fa-envelope"></i>
         </a>
@@ -293,7 +333,6 @@ footer {
         <a href="https://www.linkedin.com/company/tau-epsilon-kappa-beta-chapter/posts/?feedView=all" target="_blank" class="icon-btn">
             <i class="fab fa-linkedin"></i>
         </a>
-
     </div>
 
 </section>
@@ -303,8 +342,6 @@ footer {
 </footer>
 
 <script>
-
-/* GOOGLE FORM SUBMIT */
 document.getElementById("contactForm").addEventListener("submit", function(e){
     e.preventDefault();
 
@@ -315,16 +352,11 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     formData.append("entry.2129838489", document.getElementById("email").value);
     formData.append("entry.657006552", document.getElementById("message").value);
 
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-    });
+    fetch(url, { method:"POST", mode:"no-cors", body:formData });
 
     document.getElementById("successMsg").style.display = "block";
     document.getElementById("contactForm").reset();
 });
-
 </script>
 
 </body>
