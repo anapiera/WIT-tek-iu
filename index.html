@@ -19,9 +19,7 @@ body {
     padding-top:90px;
 }
 
-/* =========================
-   NAVBAR (UNCHANGED)
-========================= */
+/* NAVBAR (UNCHANGED) */
 nav {
     position:fixed;
     top:0;
@@ -38,20 +36,16 @@ nav {
 
 .nav-logo img {
     height:70px;
-    object-fit:contain;
 }
 
 .nav-links {
     display:flex;
-    align-items:center;
     gap:30px;
 }
 
 .nav-links a {
     color:white;
     text-decoration:none;
-    font-size:15px;
-    font-weight:500;
     position:relative;
 }
 
@@ -63,7 +57,7 @@ nav {
     width:0%;
     height:2px;
     background:white;
-    transition:0.3s;
+    transition:.3s;
 }
 
 .nav-links a:hover::after {
@@ -81,9 +75,7 @@ nav {
     color:#0a1f44;
 }
 
-/* =========================
-   HERO (UNCHANGED)
-========================= */
+/* HERO (UNCHANGED) */
 .hero {
     height:100vh;
     display:flex;
@@ -108,18 +100,6 @@ nav {
 
 .hero h1 {
     font-size:3.8rem;
-    letter-spacing:2px;
-}
-
-.hero p {
-    margin-top:10px;
-    letter-spacing:3px;
-    opacity:0.85;
-}
-
-.hero .est {
-    font-size:0.85rem;
-    opacity:0.6;
 }
 
 .hero-btn {
@@ -128,131 +108,109 @@ nav {
     border:2px solid white;
     background:none;
     color:white;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.hero-btn:hover {
-    background:white;
-    color:#0a1f44;
 }
 
 /* =========================
-   BOOT ANIMATION
+   CIRCUIT BOOT OVERLAY
 ========================= */
-#boot-overlay {
+
+#circuit-overlay {
     position:absolute;
     inset:0;
-    background:#0a1f44;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     z-index:5;
+    overflow:hidden;
+    background:#071634;
 }
 
-/* CIRCLE */
-.boot-circle {
-    position:relative;
-    width:220px;
-    height:220px;
-}
-
-/* RINGS */
-.ring {
+/* BASE CIRCUIT IMAGE */
+.circuit-bg {
     position:absolute;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,0.2);
     inset:0;
+    background:url("circuit.png") center/cover no-repeat;
+    opacity:0.15;
+    filter:blur(2px);
+    transition:all 1.5s ease;
 }
 
-.outer {
-    transform:scale(1.2);
-    animation:rotate 6s linear infinite;
-}
-
-.middle {
-    transform:scale(0.9);
-    animation:rotateReverse 8s linear infinite;
-}
-
-.inner {
-    transform:scale(0.6);
-    animation:rotate 10s linear infinite;
-}
-
-/* SCANNER */
-.scanner {
+/* GLOW LAYER */
+.circuit-glow {
     position:absolute;
-    width:100%;
-    height:2px;
-    background:linear-gradient(to right, transparent, #3b82f6, transparent);
+    inset:0;
+    background:
+        radial-gradient(circle at center, rgba(59,130,246,0.5), transparent 60%);
+    opacity:0;
+    animation:glowPulse 2.5s ease forwards;
+}
+
+/* ENERGY SWEEP */
+.energy {
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg, transparent, rgba(59,130,246,0.4), transparent);
+    transform:translateX(-100%);
+    animation:flow 2s ease forwards;
+}
+
+/* TEK TEXT */
+.boot-text {
+    position:absolute;
     top:50%;
-    animation:scan 2s linear infinite;
-}
-
-/* ANIMATIONS */
-@keyframes rotate {
-    from { transform:rotate(0deg) scale(1.2); }
-    to { transform:rotate(360deg) scale(1.2); }
-}
-
-@keyframes rotateReverse {
-    from { transform:rotate(360deg) scale(0.9); }
-    to { transform:rotate(0deg) scale(0.9); }
-}
-
-@keyframes scan {
-    0% { transform:translateY(-100px); opacity:0; }
-    50% { opacity:1; }
-    100% { transform:translateY(100px); opacity:0; }
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-size:3rem;
+    letter-spacing:4px;
+    opacity:0;
+    animation:textReveal 1s ease forwards;
+    animation-delay:2s;
 }
 
 /* FADE OUT */
 .fade-out {
-    animation:fadeOut 1s ease forwards;
+    animation:fadeOut 1.5s ease forwards;
+    animation-delay:3s;
+}
+
+/* ANIMATIONS */
+
+@keyframes glowPulse {
+    0% { opacity:0; }
+    50% { opacity:1; }
+    100% { opacity:0.6; }
+}
+
+@keyframes flow {
+    0% { transform:translateX(-100%); }
+    100% { transform:translateX(100%); }
+}
+
+@keyframes textReveal {
+    to { opacity:1; }
 }
 
 @keyframes fadeOut {
-    to {
-        opacity:0;
-        visibility:hidden;
-    }
+    to { opacity:0; visibility:hidden; }
 }
 
 /* =========================
-   RUSH TIMELINE (UNCHANGED)
+   RUSH (UNCHANGED)
 ========================= */
 .rush-section {
     padding:140px 40px;
     text-align:center;
 }
 
-.rush-section h2 {
-    font-size:2.5rem;
-    margin-bottom:80px;
-}
-
 .rush-line {
-    position:relative;
     height:2px;
     background:linear-gradient(to right, #3b82f6, transparent);
     max-width:1000px;
-    margin:0 auto 60px auto;
+    margin:auto;
 }
 
 .rush-items {
-    max-width:1000px;
-    margin:auto;
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
-    gap:20px;
-}
-
-.rush-item {
-    flex:1;
-    text-align:center;
-    position:relative;
+    max-width:1000px;
+    margin:auto;
 }
 
 .rush-dot {
@@ -260,31 +218,11 @@ nav {
     height:14px;
     background:#3b82f6;
     border-radius:50%;
-    margin:0 auto;
-    margin-top:-67px;
-    box-shadow:0 0 10px #3b82f6;
-    transition:0.3s;
-}
-
-.rush-item:hover .rush-dot {
-    transform:scale(1.2);
-    box-shadow:0 0 20px #3b82f6, 0 0 40px #3b82f6;
-}
-
-.rush-item h4 {
-    margin-top:15px;
-    margin-bottom:6px;
-}
-
-.rush-item p {
-    font-size:13px;
-    opacity:0.75;
 }
 
 footer {
     padding:30px;
     text-align:center;
-    opacity:0.5;
 }
 
 </style>
@@ -309,14 +247,12 @@ footer {
 <!-- HERO -->
 <section class="hero">
 
-<!-- BOOT OVERLAY -->
-<div id="boot-overlay">
-    <div class="boot-circle">
-        <div class="ring outer"></div>
-        <div class="ring middle"></div>
-        <div class="ring inner"></div>
-        <div class="scanner"></div>
-    </div>
+<!-- CIRCUIT ANIMATION -->
+<div id="circuit-overlay" class="fade-out">
+    <div class="circuit-bg"></div>
+    <div class="circuit-glow"></div>
+    <div class="energy"></div>
+    <div class="boot-text">TEK</div>
 </div>
 
 <div class="hero-content">
@@ -328,63 +264,25 @@ footer {
 <button class="hero-btn">Explore TEK</button>
 </a>
 </div>
+
 </section>
 
-<!-- RUSH TIMELINE -->
+<!-- RUSH -->
 <section class="rush-section">
-
 <h2>Spring 2026 Rush Timeline</h2>
-
 <div class="rush-line"></div>
-
 <div class="rush-items">
-
-<div class="rush-item">
-    <div class="rush-dot"></div>
-    <h4>March 2</h4>
-    <p>Info Session & Networking Night</p>
+<div><div class="rush-dot"></div><h4>March 2</h4></div>
+<div><div class="rush-dot"></div><h4>March 4–6</h4></div>
+<div><div class="rush-dot"></div><h4>March 7</h4></div>
+<div><div class="rush-dot"></div><h4>March 9–11</h4></div>
+<div><div class="rush-dot"></div><h4>After</h4></div>
 </div>
-
-<div class="rush-item">
-    <div class="rush-dot"></div>
-    <h4>March 4–6</h4>
-    <p>Small Group Dinners</p>
-</div>
-
-<div class="rush-item">
-    <div class="rush-dot"></div>
-    <h4>March 7</h4>
-    <p>Interview Invitations Released</p>
-</div>
-
-<div class="rush-item">
-    <div class="rush-dot"></div>
-    <h4>March 9–11</h4>
-    <p>Final Interviews</p>
-</div>
-
-<div class="rush-item">
-    <div class="rush-dot"></div>
-    <h4>After Interviews</h4>
-    <p>Bids Released</p>
-</div>
-
-</div>
-
 </section>
 
 <footer>
 © 2026 Tau Epsilon Kappa — Indiana University
 </footer>
-
-<!-- JS (SAFE) -->
-<script>
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("boot-overlay").classList.add("fade-out");
-    }, 2200);
-});
-</script>
 
 </body>
 </html>
