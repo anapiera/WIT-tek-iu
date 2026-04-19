@@ -305,38 +305,45 @@ footer {
     text-align:center;
     opacity:0.5;
 }
-/* ================= CAROUSEL ARROWS ================= */
+/* ================= STYLISH CAROUSEL ARROWS ================= */
 .carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(10, 31, 68, 0.75);   /* matches your dark theme */
     color: white;
     border: none;
-    font-size: 32px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    font-size: 42px;                      /* bigger, more stylish arrows */
+    width: 48px;
+    height: 68px;
+    border-radius: 12px;                  /* softer rectangle, not circle */
     cursor: pointer;
     z-index: 20;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-arrow:hover {
-    background: rgba(59, 130, 246, 0.9);
-    transform: translateY(-50%) scale(1.15);
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+    background: rgba(59, 130, 246, 0.95);   /* nice blue hover */
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
 }
 
-.left-arrow  { left: 40px; }
-.right-arrow { right: 40px; }
+.left-arrow  { 
+    left: 20px;     /* closer to the image */
+}
 
+.right-arrow { 
+    right: 20px;    /* closer to the image */
+}
+
+/* Make arrows slightly see-through until hovered */
 .carousel-arrow {
-    opacity: 0.85;
+    opacity: 0.75;
 }
 .carousel-arrow:hover {
     opacity: 1;
