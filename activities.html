@@ -24,7 +24,7 @@ body {
     padding-top:90px;
 }
 
-/* NAVBAR (UNCHANGED) */
+/* NAVBAR */
 nav {
     position:fixed;
     top:0;
@@ -92,26 +92,31 @@ nav {
     font-size:3rem;
 }
 
-/* SECTION (FIXED SPACING) */
+/* SECTION (FIXED + CENTERED) */
 .section {
-    max-width:1100px;
-    margin:auto;
-    padding:60px 20px 40px;
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:80px 40px;
+    text-align:center;
 }
 
+/* BIG CENTERED HEADERS */
 .section h2 {
-    margin-bottom:25px;
+    font-size:2.4rem;
+    margin-bottom:40px;
+    text-align:center;
 }
 
-/* ================= CAROUSEL BACKGROUND ================= */
+/* ================= CAROUSEL ================= */
 
 .carousel-section {
     position:relative;
-    padding:40px 0 20px;
+    padding:40px 0 40px;
     overflow:hidden;
 }
 
-/* RADIAL SPOTLIGHT */
+/* GLOW BACKGROUND */
 .carousel-section::before {
     content:'';
     position:absolute;
@@ -125,8 +130,6 @@ nav {
     z-index:0;
 }
 
-/* ================= CAROUSEL ================= */
-
 .carousel-wrapper {
     position:relative;
     height:500px;
@@ -134,7 +137,7 @@ nav {
     z-index:1;
 }
 
-/* CLEAN MINIMAL ARROWS */
+/* CLEAN ARROWS (2in from edge ≈ 150px) */
 .carousel-arrow {
     position:absolute;
     top:50%;
@@ -145,29 +148,27 @@ nav {
     border:none;
 
     color:white;
-    font-size:40px;
+    font-size:44px;
     font-weight:300;
 
     cursor:pointer;
     transition:0.25s;
 }
 
-/* POSITION NEXT TO SIDE CARDS */
 .left-arrow {
-    left:calc(50% - 420px);
+    left:150px;
 }
 
 .right-arrow {
-    right:calc(50% - 420px);
+    right:150px;
 }
 
-/* HOVER */
 .carousel-arrow:hover {
     transform:translateY(-50%) scale(1.2);
     opacity:0.8;
 }
 
-/* CARD BASE */
+/* CARDS */
 .card {
     position:absolute;
     top:50%;
@@ -176,7 +177,6 @@ nav {
     height:420px;
     border-radius:20px;
     overflow:hidden;
-    cursor:pointer;
 
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(20px);
@@ -187,14 +187,12 @@ nav {
     transition:all 0.7s cubic-bezier(0.22,1,0.36,1);
 }
 
-/* IMAGE */
 .card img {
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-/* OVERLAY */
 .card-overlay {
     position:absolute;
     bottom:0;
@@ -203,62 +201,62 @@ nav {
     background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 }
 
-/* CENTER */
+/* STATES */
 .card.center {
     transform:translate(-50%, -50%) scale(1.15);
     z-index:5;
     opacity:1;
 }
 
-/* LEFT */
 .card.left {
     transform:translate(calc(-50% - 300px), -50%) scale(0.85) rotateY(8deg);
     opacity:0.35;
     filter:blur(2px);
-    z-index:3;
 }
 
-/* RIGHT */
 .card.right {
     transform:translate(calc(-50% + 300px), -50%) scale(0.85) rotateY(-8deg);
     opacity:0.35;
     filter:blur(2px);
-    z-index:3;
 }
 
-/* HIDDEN */
 .card.hidden {
     transform:translate(-50%, -50%) scale(0.7);
     opacity:0;
     pointer-events:none;
 }
 
-/* HOVER CENTER */
 .card.center:hover {
     transform:translate(-50%, -50%) scale(1.2);
-    box-shadow:
-        0 0 80px rgba(59,130,246,0.5),
-        0 40px 80px rgba(0,0,0,0.8);
 }
 
-/* ================= CALENDAR ================= */
+/* ================= CALENDAR (BIG + CENTERED) ================= */
+
+.calendar-container {
+    width:100%;
+}
+
 .calendar-container iframe {
     width:100%;
-    height:600px;
+    height:750px;
     border:none;
-    border-radius:15px;
+    border-radius:20px;
 }
 
-/* ================= GALLERY ================= */
+/* ================= GALLERY (BIG GRID) ================= */
+
 .gallery {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:20px;
+    width:100%;
 }
 
 .gallery img {
     width:100%;
-    border-radius:10px;
+    height:260px;
+    object-fit:cover;
+    border-radius:12px;
     cursor:pointer;
     transition:0.3s;
 }
