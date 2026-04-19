@@ -24,7 +24,7 @@ body {
     padding-top:90px;
 }
 
-/* NAVBAR (UNCHANGED) */
+/* NAVBAR */
 nav {
     position:fixed;
     top:0;
@@ -96,114 +96,66 @@ nav {
 .section {
     max-width:1100px;
     margin:auto;
-    padding:40px 20px;
-}
-
-/* ================= CAROUSEL BACKGROUND ================= */
-
-.carousel-section {
-    position:relative;
-    padding:80px 0;
-    overflow:hidden;
-}
-
-/* RADIAL SPOTLIGHT */
-.carousel-section::before {
-    content:'';
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:900px;
-    height:900px;
-    transform:translate(-50%, -50%);
-    background:radial-gradient(circle, rgba(59,130,246,0.25), transparent 65%);
-    filter:blur(80px);
-    z-index:0;
+    padding:60px 20px;
 }
 
 /* ================= CAROUSEL ================= */
 
-.carousel-wrapper {
-    position:relative;
-    height:500px;
-    perspective:1200px;
-    z-index:1;
+.carousel-section {
+    padding:100px 0;
+    background:
+        radial-gradient(circle at center, rgba(59,130,246,0.25), transparent 60%);
 }
 
-/* CARD BASE */
-.card {
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:360px;
+.carousel-container {
+    overflow:hidden;
+    max-width:1100px;
+    margin:auto;
+}
+
+.carousel-track {
+    display:flex;
+    gap:30px;
+    transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* CARD */
+.carousel-card {
+    min-width:70%;
     height:420px;
     border-radius:20px;
     overflow:hidden;
-    cursor:pointer;
+    position:relative;
 
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(20px);
     border:1px solid rgba(255,255,255,0.15);
 
-    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+    transform:scale(0.9);
+    opacity:0.5;
+    transition:0.6s;
+}
 
-    transition:all 0.7s cubic-bezier(0.22,1,0.36,1);
+/* ACTIVE */
+.carousel-card.active {
+    transform:scale(1);
+    opacity:1;
 }
 
 /* IMAGE */
-.card img {
+.carousel-card img {
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
 /* OVERLAY */
-.card-overlay {
+.overlay {
     position:absolute;
     bottom:0;
     width:100%;
     padding:20px;
     background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-}
-
-/* STATES */
-
-/* CENTER (FOCAL) */
-.card.center {
-    transform:translate(-50%, -50%) scale(1.15);
-    z-index:5;
-    opacity:1;
-}
-
-/* LEFT */
-.card.left {
-    transform:translate(calc(-50% - 300px), -50%) scale(0.85) rotateY(8deg);
-    opacity:0.35;
-    filter:blur(2px);
-    z-index:3;
-}
-
-/* RIGHT */
-.card.right {
-    transform:translate(calc(-50% + 300px), -50%) scale(0.85) rotateY(-8deg);
-    opacity:0.35;
-    filter:blur(2px);
-    z-index:3;
-}
-
-/* HIDDEN */
-.card.hidden {
-    transform:translate(-50%, -50%) scale(0.7);
-    opacity:0;
-    pointer-events:none;
-}
-
-/* HOVER (ONLY CENTER) */
-.card.center:hover {
-    transform:translate(-50%, -50%) scale(1.2);
-    box-shadow:
-        0 0 80px rgba(59,130,246,0.5),
-        0 40px 80px rgba(0,0,0,0.8);
 }
 
 /* ================= CALENDAR ================= */
@@ -259,6 +211,7 @@ footer {
 
 <body>
 
+<!-- NAV -->
 <nav>
 <div class="nav-logo">
 <a href="index.html"><img src="btn.png"></a>
@@ -273,56 +226,60 @@ footer {
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="page-hero">
 <h1>Activities</h1>
 </section>
 
-<!-- 🔥 NEW CAROUSEL SECTION -->
+<!-- 🔥 CAROUSEL -->
 <section class="carousel-section">
 
-<div class="carousel-wrapper">
+<div class="carousel-container">
+<div class="carousel-track">
 
-<div class="card center">
+<div class="carousel-card active">
 <img src="acomplishments/acomp1.jpg">
-<div class="card-overlay">
+<div class="overlay">
 <h3>Kirsten Jackson</h3>
-<p>Elected Pledge Class President for Spring 2026, leading the Alpha Class and building TEK’s foundation.</p>
+<p>Elected Pledge Class President for Spring 2026, leading TEK’s Alpha Class.</p>
 </div>
 </div>
 
-<div class="card right">
+<div class="carousel-card">
 <img src="acomplishments/acomp2.jpg">
-<div class="card-overlay">
+<div class="overlay">
 <h3>Monish Malla</h3>
-<p>Recipient of the Luddy Certificate of Academic Excellence for top-tier performance.</p>
+<p>Received Luddy Certificate of Academic Excellence.</p>
 </div>
 </div>
 
-<div class="card hidden">
+<div class="carousel-card">
 <img src="acomplishments/acomp3.jpg">
-<div class="card-overlay">
+<div class="overlay">
 <h3>Tessa Troyer</h3>
-<p>Incoming BMO Wealth Management Intern gaining elite finance experience.</p>
+<p>BMO Wealth Management Intern for Summer 2026.</p>
 </div>
 </div>
 
-<div class="card hidden">
+<div class="carousel-card">
 <img src="acomplishments/acomp4.jpg">
-<div class="card-overlay">
+<div class="overlay">
 <h3>Katie Castro</h3>
-<p>Selected for La Plaza Discovery Program, driving community impact.</p>
+<p>Selected for La Plaza Discovery Internship.</p>
 </div>
 </div>
 
-<div class="card left">
+<div class="carousel-card">
 <img src="acomplishments/acomp5.jpg">
-<div class="card-overlay">
+<div class="overlay">
 <h3>Johnny Zheng</h3>
-<p>Presented research at Luddy Poster Fair, showcasing innovation.</p>
+<p>Presented research at Luddy Poster Fair.</p>
 </div>
 </div>
 
 </div>
+</div>
+
 </section>
 
 <!-- CALENDAR -->
@@ -353,6 +310,7 @@ footer {
 
 </section>
 
+<!-- MODAL -->
 <div id="modal" onclick="this.style.display='none'">
 <img id="modalImg">
 </div>
@@ -363,39 +321,37 @@ footer {
 
 <script>
 
-let cards = document.querySelectorAll(".card");
+/* CAROUSEL */
+const track = document.querySelector(".carousel-track");
+const cards = document.querySelectorAll(".carousel-card");
+
 let index = 0;
 
-function updateCards() {
-    cards.forEach(c => c.className = "card hidden");
+function updateCarousel() {
+    const width = cards[0].offsetWidth + 30;
+    track.style.transform = `translateX(-${index * width}px)`;
 
-    let prev = (index - 1 + cards.length) % cards.length;
-    let next = (index + 1) % cards.length;
-
-    cards[index].className = "card center";
-    cards[prev].className = "card left";
-    cards[next].className = "card right";
+    cards.forEach(c => c.classList.remove("active"));
+    cards[index].classList.add("active");
 }
 
-function move(dir) {
-    index = (index + dir + cards.length) % cards.length;
-    updateCards();
-}
-
-/* CLICK ANYWHERE TO MOVE */
-document.querySelector(".carousel-wrapper").addEventListener("click", (e)=>{
-    if(e.clientX < window.innerWidth/2){
-        move(-1);
+/* CLICK NAV */
+document.querySelector(".carousel-container").addEventListener("click", (e) => {
+    if(e.clientX < window.innerWidth / 2){
+        index = Math.max(index - 1, 0);
     } else {
-        move(1);
+        index = Math.min(index + 1, cards.length - 1);
     }
+    updateCarousel();
 });
 
-/* AUTO ROTATE (SMOOTHER) */
+/* AUTO ROTATE */
 setInterval(() => {
-    move(1);
+    index = (index + 1) % cards.length;
+    updateCarousel();
 }, 5000);
 
+/* MODAL */
 function openModal(src){
     document.getElementById("modal").style.display = "flex";
     document.getElementById("modalImg").src = src;
