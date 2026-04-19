@@ -183,7 +183,108 @@ footer {
     opacity:0.5;
     font-size:14px;
 }
+/* =========================
+   HISTORY SECTION
+========================= */
+.history-section {
+    padding:120px 40px;
+    background:linear-gradient(180deg, #0a1f44 0%, #091a38 100%);
+}
 
+.history-container {
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    gap:60px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+/* TIMELINE */
+.timeline {
+    position:relative;
+    min-width:120px;
+}
+
+.timeline-line {
+    position:absolute;
+    left:18px;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:linear-gradient(to bottom, #3b82f6, transparent);
+}
+
+.timeline-item {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:40px;
+}
+
+.timeline-dot {
+    width:14px;
+    height:14px;
+    background:#3b82f6;
+    border-radius:50%;
+    box-shadow:0 0 10px #3b82f6;
+}
+
+.timeline-item span {
+    font-size:14px;
+    opacity:0.7;
+}
+
+/* CONTENT */
+.history-content {
+    flex:1;
+}
+
+.history-content h2 {
+    font-size:2.2rem;
+    margin-bottom:20px;
+}
+
+.history-content p {
+    opacity:0.75;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+/* FOUNDER CARD */
+.founder-card {
+    margin-top:30px;
+    padding:25px;
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.3s;
+}
+
+.founder-card:hover {
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.founder-card h4 {
+    margin-bottom:10px;
+}
+
+/* =========================
+   SMALL UPGRADE TO CARDS
+========================= */
+.about-card {
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.about-card:hover {
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
 </style>
 </head>
 
@@ -219,7 +320,7 @@ footer {
 </section>
 
 <!-- =========================
-     ABOUT CONTENT
+     ABOUT CONTENT (UPGRADED)
 ========================= -->
 <section class="about-container">
 
@@ -229,7 +330,7 @@ footer {
         </div>
         <h3>Who We Are</h3>
         <p>
-        Tau Epsilon Kappa (TEK) at Indiana University is a selective, co-ed professional technology fraternity designed for students who want to go beyond the classroom.
+        Tau Epsilon Kappa (TEK) at Indiana University is a selective, co-ed professional technology fraternity built for students who want to go beyond the classroom.
         </p>
     </div>
 
@@ -239,7 +340,7 @@ footer {
         </div>
         <h3>What We Do</h3>
         <p>
-        We host technical workshops, industry panels, and real-world projects that prepare our members for top careers in tech and business.
+        We host technical workshops, industry panels, and hands-on projects that prepare our members for top careers in tech and business.
         </p>
     </div>
 
@@ -251,6 +352,64 @@ footer {
         <p>
         TEK is a network of ambitious students who collaborate, support one another, and build lifelong professional connections.
         </p>
+    </div>
+
+</section>
+
+<!-- =========================
+     OUR HISTORY (NEW SECTION)
+========================= -->
+<section class="history-section">
+
+    <div class="history-container">
+
+        <!-- LEFT TIMELINE -->
+        <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span>2026</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span>Founding</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span>Beta Chapter</span>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="history-content">
+
+            <h2>From One Idea to a Growing Legacy</h2>
+
+            <p>
+            Tau Epsilon Kappa at Indiana University began with a simple but ambitious vision — to create a space where students passionate about technology, innovation, and professional growth could come together and build something meaningful.
+            </p>
+
+            <p>
+            Founded by <strong>Nair and Alekya</strong>, the IU chapter represents the <strong>Beta Chapter</strong> of Tau Epsilon Kappa, marking the expansion of a rapidly growing organization beyond its origins.
+            </p>
+
+            <p>
+            What started as an idea quickly turned into action — bringing together driven students who wanted more than just a resume line. They wanted connection, opportunity, and a community that would push them to grow.
+            </p>
+
+            <!-- FOUNDER CARD -->
+            <div class="founder-card">
+                <h4>Founding Vision</h4>
+                <p>
+                Built on ambition, collaboration, and innovation, TEK IU was created to empower students to grow professionally, build meaningful relationships, and shape the future of technology.
+                </p>
+            </div>
+
+        </div>
+
     </div>
 
 </section>
