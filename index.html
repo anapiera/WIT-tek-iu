@@ -20,7 +20,7 @@ body {
 }
 
 /* =========================
-   NAVBAR (MATCHES ABOUT)
+   NAVBAR (UNCHANGED)
 ========================= */
 nav {
     position:fixed;
@@ -55,7 +55,6 @@ nav {
     position:relative;
 }
 
-/* hover underline */
 .nav-links a::after {
     content:'';
     position:absolute;
@@ -83,7 +82,7 @@ nav {
 }
 
 /* =========================
-   HERO
+   HERO (UNCHANGED)
 ========================= */
 .hero {
     height:100vh;
@@ -139,7 +138,89 @@ nav {
 }
 
 /* =========================
-   RUSH TIMELINE (CLEAN HORIZONTAL)
+   BOOT ANIMATION
+========================= */
+#boot-overlay {
+    position:absolute;
+    inset:0;
+    background:#0a1f44;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:5;
+}
+
+/* CIRCLE */
+.boot-circle {
+    position:relative;
+    width:220px;
+    height:220px;
+}
+
+/* RINGS */
+.ring {
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.2);
+    inset:0;
+}
+
+.outer {
+    transform:scale(1.2);
+    animation:rotate 6s linear infinite;
+}
+
+.middle {
+    transform:scale(0.9);
+    animation:rotateReverse 8s linear infinite;
+}
+
+.inner {
+    transform:scale(0.6);
+    animation:rotate 10s linear infinite;
+}
+
+/* SCANNER */
+.scanner {
+    position:absolute;
+    width:100%;
+    height:2px;
+    background:linear-gradient(to right, transparent, #3b82f6, transparent);
+    top:50%;
+    animation:scan 2s linear infinite;
+}
+
+/* ANIMATIONS */
+@keyframes rotate {
+    from { transform:rotate(0deg) scale(1.2); }
+    to { transform:rotate(360deg) scale(1.2); }
+}
+
+@keyframes rotateReverse {
+    from { transform:rotate(360deg) scale(0.9); }
+    to { transform:rotate(0deg) scale(0.9); }
+}
+
+@keyframes scan {
+    0% { transform:translateY(-100px); opacity:0; }
+    50% { opacity:1; }
+    100% { transform:translateY(100px); opacity:0; }
+}
+
+/* FADE OUT */
+.fade-out {
+    animation:fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* =========================
+   RUSH TIMELINE (UNCHANGED)
 ========================= */
 .rush-section {
     padding:140px 40px;
@@ -151,7 +232,6 @@ nav {
     margin-bottom:80px;
 }
 
-/* LINE */
 .rush-line {
     position:relative;
     height:2px;
@@ -160,7 +240,6 @@ nav {
     margin:0 auto 60px auto;
 }
 
-/* ITEMS ROW */
 .rush-items {
     max-width:1000px;
     margin:auto;
@@ -170,14 +249,12 @@ nav {
     gap:20px;
 }
 
-/* EACH ITEM */
 .rush-item {
     flex:1;
     text-align:center;
     position:relative;
 }
 
-/* DOT */
 .rush-dot {
     width:14px;
     height:14px;
@@ -189,13 +266,11 @@ nav {
     transition:0.3s;
 }
 
-/* HOVER */
 .rush-item:hover .rush-dot {
     transform:scale(1.2);
     box-shadow:0 0 20px #3b82f6, 0 0 40px #3b82f6;
 }
 
-/* TEXT */
 .rush-item h4 {
     margin-top:15px;
     margin-bottom:6px;
@@ -206,7 +281,6 @@ nav {
     opacity:0.75;
 }
 
-/* FOOTER */
 footer {
     padding:30px;
     text-align:center;
@@ -234,6 +308,17 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
+
+<!-- BOOT OVERLAY -->
+<div id="boot-overlay">
+    <div class="boot-circle">
+        <div class="ring outer"></div>
+        <div class="ring middle"></div>
+        <div class="ring inner"></div>
+        <div class="scanner"></div>
+    </div>
+</div>
+
 <div class="hero-content">
 <h1>Tau Epsilon Kappa</h1>
 <p>INDIANA UNIVERSITY</p>
@@ -291,6 +376,15 @@ footer {
 <footer>
 © 2026 Tau Epsilon Kappa — Indiana University
 </footer>
+
+<!-- JS (SAFE) -->
+<script>
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("boot-overlay").classList.add("fade-out");
+    }, 2200);
+});
+</script>
 
 </body>
 </html>
