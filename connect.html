@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Connect | TEK IU</title>
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
+
+body {
+    background:#0a1f44;
+    color:white;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 60px;
+    background:rgba(10,31,68,0.75);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index:1000;
+}
+
+.nav-logo img {
+    height:58px;
+}
+
+.nav-links {
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a {
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    position:relative;
+}
+
+.nav-links a::after {
+    content:'';
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:white;
+    transition:0.3s;
+}
+
+.nav-links a:hover::after {
+    width:100%;
+}
+
+.connect-btn {
+    border:1.5px solid white;
+    padding:8px 18px;
+    border-radius:6px;
+}
+
+.connect-btn:hover {
+    background:white;
+    color:#0a1f44;
+}
+
+/* =========================
+   HEADER
+========================= */
+.page-hero {
+    padding-top:140px;
+    padding-bottom:40px;
+    text-align:center;
+}
+
+.page-hero h1 {
+    font-size:3rem;
+}
+
+/* =========================
+   JOIN SECTION
+========================= */
+.join-section {
+    background:#dbe6f2;
+    color:#0a1f44;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.join-section h2 {
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.join-section p {
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+/* APPLY BUTTON */
+.join-btn {
+    padding:16px 40px;
+    background:#0a1f44;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:1px;
+    transition:0.3s;
+}
+
+.join-btn:hover {
+    background:#142f66;
+    transform:translateY(-3px);
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-section {
+    padding:80px 20px;
+    text-align:center;
+}
+
+.contact-form {
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding:10px;
+    border:none;
+    border-radius:6px;
+}
+
+.contact-btn {
+    padding:14px;
+    border:2px solid white;
+    background:none;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-btn:hover {
+    background:white;
+    color:#0a1f44;
+}
+
+/* SUCCESS MSG */
+#successMsg {
+    color:#7CFCB2;
+}
+
+/* =========================
+   ICONS
+========================= */
+.contact-icons {
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.icon-btn {
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    font-size:22px;
+    color:white;
+    transition:0.3s;
+}
+
+.icon-btn:hover {
+    background:white;
+    color:#0a1f44;
+    transform:translateY(-5px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding:30px;
+    text-align:center;
+    opacity:0.5;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-logo">
+        <img src="btn.png">
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="members.html">Members</a>
+        <a href="activities.html">Activities</a>
+        <a href="connect.html" class="connect-btn">Connect</a>
+    </div>
+</nav>
+
+<!-- HEADER -->
+<section class="page-hero">
+    <h1>Connect With Us</h1>
+</section>
+
+<!-- JOIN -->
+<section class="join-section">
+
+    <h2>Join Tau Epsilon Kappa</h2>
+
+    <p>
+    Take the next step in your academic and professional journey. Apply to become part of a community driven by innovation, leadership, and impact.
+    </p>
+
+    <!-- ✅ YOUR FORM LINK HERE -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScGXLsSIiKPpFVCUp-I80AF2iRffYsyI20rP0e_ZyhRCrk_Iw/closedform" 
+       target="_blank" 
+       class="join-btn">
+       APPLY FOR MEMBERSHIP
+    </a>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+
+    <h2>Contact</h2>
+
+    <form id="contactForm" class="contact-form">
+
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Message" required></textarea>
+
+        <button type="submit" class="contact-btn">Send</button>
+
+        <p id="successMsg" style="display:none;">Message sent!</p>
+
+    </form>
+
+    <!-- ICONS -->
+    <div class="contact-icons">
+
+        <a href="mailto:nenair@iu.edu" class="icon-btn">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="https://www.instagram.com/tekatiu/" target="_blank" class="icon-btn">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/company/tau-epsilon-kappa-beta-chapter/posts/?feedView=all" target="_blank" class="icon-btn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+© 2026 Tau Epsilon Kappa — Indiana University
+</footer>
+
+<script>
+
+/* GOOGLE FORM SUBMIT */
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSdwMyCX2chb845ElVY_c3T-xTstkmeQIrfBeenteNvomuE3iw/formResponse";
+
+    const formData = new FormData();
+    formData.append("entry.960657892", document.getElementById("name").value);
+    formData.append("entry.2129838489", document.getElementById("email").value);
+    formData.append("entry.657006552", document.getElementById("message").value);
+
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    });
+
+    document.getElementById("successMsg").style.display = "block";
+    document.getElementById("contactForm").reset();
+});
+
+</script>
+
+</body>
+</html>
