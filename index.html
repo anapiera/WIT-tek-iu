@@ -19,7 +19,7 @@ body {
     padding-top:90px;
 }
 
-/* NAVBAR (UNCHANGED) */
+/* ================= NAV ================= */
 nav {
     position:fixed;
     top:0;
@@ -34,9 +34,7 @@ nav {
     z-index:1000;
 }
 
-.nav-logo img {
-    height:70px;
-}
+.nav-logo img { height:70px; }
 
 .nav-links {
     display:flex;
@@ -60,9 +58,7 @@ nav {
     transition:.3s;
 }
 
-.nav-links a:hover::after {
-    width:100%;
-}
+.nav-links a:hover::after { width:100%; }
 
 .connect-btn {
     border:1.5px solid white;
@@ -75,7 +71,7 @@ nav {
     color:#0a1f44;
 }
 
-/* HERO (UNCHANGED) */
+/* ================= HERO ================= */
 .hero {
     height:100vh;
     display:flex;
@@ -83,23 +79,56 @@ nav {
     align-items:center;
     text-align:center;
     position:relative;
-    background:url("logo.jpg") center/cover no-repeat;
+    overflow:hidden;
+
+    background:url("circuit.png") center/cover no-repeat;
 }
 
+/* DARK START */
 .hero::before {
     content:'';
     position:absolute;
     inset:0;
-    background:rgba(10,31,68,0.65);
+    background:#071634;
+    z-index:1;
+    animation:fadeDark 2s ease forwards;
 }
 
+/* WAVE SWEEP */
+.wave {
+    position:absolute;
+    inset:0;
+    z-index:2;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(59,130,246,0.5), transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(59,130,246,0.4), transparent 60%);
+    opacity:0;
+    animation:waveSweep 2.5s ease forwards;
+}
+
+/* HERO CONTENT */
 .hero-content {
     position:relative;
-    z-index:2;
+    z-index:3;
+    opacity:0;
+    animation:fadeIn 1.5s ease forwards;
+    animation-delay:2.2s;
 }
 
 .hero h1 {
     font-size:3.8rem;
+    letter-spacing:2px;
+}
+
+.hero p {
+    margin-top:10px;
+    letter-spacing:3px;
+    opacity:0.85;
+}
+
+.hero .est {
+    font-size:0.85rem;
+    opacity:0.6;
 }
 
 .hero-btn {
@@ -108,109 +137,69 @@ nav {
     border:2px solid white;
     background:none;
     color:white;
+    cursor:pointer;
+    transition:.3s;
 }
 
-/* =========================
-   CIRCUIT BOOT OVERLAY
-========================= */
-
-#circuit-overlay {
-    position:absolute;
-    inset:0;
-    z-index:5;
-    overflow:hidden;
-    background:#071634;
-}
-
-/* BASE CIRCUIT IMAGE */
-.circuit-bg {
-    position:absolute;
-    inset:0;
-    background:url("circuit.png") center/cover no-repeat;
-    opacity:0.15;
-    filter:blur(2px);
-    transition:all 1.5s ease;
-}
-
-/* GLOW LAYER */
-.circuit-glow {
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(circle at center, rgba(59,130,246,0.5), transparent 60%);
-    opacity:0;
-    animation:glowPulse 2.5s ease forwards;
-}
-
-/* ENERGY SWEEP */
-.energy {
-    position:absolute;
-    inset:0;
-    background:linear-gradient(120deg, transparent, rgba(59,130,246,0.4), transparent);
-    transform:translateX(-100%);
-    animation:flow 2s ease forwards;
-}
-
-/* TEK TEXT */
-.boot-text {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    font-size:3rem;
-    letter-spacing:4px;
-    opacity:0;
-    animation:textReveal 1s ease forwards;
-    animation-delay:2s;
-}
-
-/* FADE OUT */
-.fade-out {
-    animation:fadeOut 1.5s ease forwards;
-    animation-delay:3s;
+.hero-btn:hover {
+    background:white;
+    color:#0a1f44;
 }
 
 /* ANIMATIONS */
+@keyframes fadeDark {
+    0% { background:#071634; }
+    100% { background:rgba(10,31,68,0.55); }
+}
 
-@keyframes glowPulse {
-    0% { opacity:0; }
+@keyframes waveSweep {
+    0% {
+        transform:translateX(-40%) scale(1.3);
+        opacity:0;
+    }
     50% { opacity:1; }
-    100% { opacity:0.6; }
+    100% {
+        transform:translateX(40%) scale(1.3);
+        opacity:0;
+    }
 }
 
-@keyframes flow {
-    0% { transform:translateX(-100%); }
-    100% { transform:translateX(100%); }
-}
-
-@keyframes textReveal {
+@keyframes fadeIn {
     to { opacity:1; }
 }
 
-@keyframes fadeOut {
-    to { opacity:0; visibility:hidden; }
-}
-
-/* =========================
-   RUSH (UNCHANGED)
-========================= */
+/* ================= TIMELINE (FIXED ORIGINAL) ================= */
 .rush-section {
     padding:140px 40px;
     text-align:center;
 }
 
+.rush-section h2 {
+    font-size:2.5rem;
+    margin-bottom:80px;
+}
+
 .rush-line {
+    position:relative;
     height:2px;
     background:linear-gradient(to right, #3b82f6, transparent);
     max-width:1000px;
-    margin:auto;
+    margin:0 auto 60px auto;
 }
 
 .rush-items {
-    display:flex;
-    justify-content:space-between;
     max-width:1000px;
     margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.rush-item {
+    flex:1;
+    text-align:center;
+    position:relative;
 }
 
 .rush-dot {
@@ -218,11 +207,31 @@ nav {
     height:14px;
     background:#3b82f6;
     border-radius:50%;
+    margin:0 auto;
+    margin-top:-67px;
+    box-shadow:0 0 10px #3b82f6;
+    transition:.3s;
+}
+
+.rush-item:hover .rush-dot {
+    transform:scale(1.2);
+    box-shadow:0 0 20px #3b82f6, 0 0 40px #3b82f6;
+}
+
+.rush-item h4 {
+    margin-top:15px;
+    margin-bottom:6px;
+}
+
+.rush-item p {
+    font-size:13px;
+    opacity:0.75;
 }
 
 footer {
     padding:30px;
     text-align:center;
+    opacity:0.5;
 }
 
 </style>
@@ -247,13 +256,7 @@ footer {
 <!-- HERO -->
 <section class="hero">
 
-<!-- CIRCUIT ANIMATION -->
-<div id="circuit-overlay" class="fade-out">
-    <div class="circuit-bg"></div>
-    <div class="circuit-glow"></div>
-    <div class="energy"></div>
-    <div class="boot-text">TEK</div>
-</div>
+<div class="wave"></div>
 
 <div class="hero-content">
 <h1>Tau Epsilon Kappa</h1>
@@ -267,17 +270,47 @@ footer {
 
 </section>
 
-<!-- RUSH -->
+<!-- TIMELINE -->
 <section class="rush-section">
+
 <h2>Spring 2026 Rush Timeline</h2>
+
 <div class="rush-line"></div>
+
 <div class="rush-items">
-<div><div class="rush-dot"></div><h4>March 2</h4></div>
-<div><div class="rush-dot"></div><h4>March 4–6</h4></div>
-<div><div class="rush-dot"></div><h4>March 7</h4></div>
-<div><div class="rush-dot"></div><h4>March 9–11</h4></div>
-<div><div class="rush-dot"></div><h4>After</h4></div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 2</h4>
+    <p>Info Session & Networking Night</p>
 </div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 4–6</h4>
+    <p>Small Group Dinners</p>
+</div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 7</h4>
+    <p>Interview Invitations Released</p>
+</div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>March 9–11</h4>
+    <p>Final Interviews</p>
+</div>
+
+<div class="rush-item">
+    <div class="rush-dot"></div>
+    <h4>After Interviews</h4>
+    <p>Bids Released</p>
+</div>
+
+</div>
+
 </section>
 
 <footer>
