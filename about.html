@@ -6,23 +6,13 @@
 <link rel="icon" type="image/png" href="btn2.jpg">
 <title>About | TEK IU</title>
 
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter', sans-serif;
-}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
 
 body {
     background:#0a1f44;
@@ -30,9 +20,7 @@ body {
     padding-top:90px;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAV */
 nav {
     position:fixed;
     top:0;
@@ -47,24 +35,19 @@ nav {
     z-index:1000;
 }
 
-.nav-logo img {
-    height:70px;
-}
+.nav-logo img { height:70px; }
 
 .nav-links {
     display:flex;
-    align-items:center;
     gap:30px;
 }
 
 .nav-links a {
     color:white;
     text-decoration:none;
-    font-size:15px;
     position:relative;
 }
 
-/* hover underline */
 .nav-links a::after {
     content:'';
     position:absolute;
@@ -76,9 +59,7 @@ nav {
     transition:0.3s;
 }
 
-.nav-links a:hover::after {
-    width:100%;
-}
+.nav-links a:hover::after { width:100%; }
 
 .connect-btn {
     border:1.5px solid white;
@@ -91,26 +72,16 @@ nav {
     color:#0a1f44;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 .page-hero {
     padding:140px 20px 80px;
     text-align:center;
 }
 
-.page-hero h1 {
-    font-size:3rem;
-}
+.page-hero h1 { font-size:3rem; }
+.page-hero p { opacity:0.7; letter-spacing:2px; }
 
-.page-hero p {
-    opacity:0.7;
-    letter-spacing:2px;
-}
-
-/* =========================
-   ABOUT CARDS
-========================= */
+/* ABOUT CARDS */
 .about-container {
     max-width:1100px;
     margin:auto;
@@ -118,7 +89,7 @@ nav {
     flex-wrap:wrap;
     justify-content:center;
     gap:30px;
-    padding-bottom:100px;
+    padding-bottom:80px;
 }
 
 .about-card {
@@ -154,16 +125,12 @@ nav {
     color:#0a1f44;
 }
 
-.about-card p {
-    opacity:0.75;
-    line-height:1.6;
-}
-
-/* =========================
-   HISTORY SECTION
-========================= */
+/* HISTORY */
 .history-section {
-    padding:120px 40px;
+    padding:140px 40px;
+    display:flex;
+    align-items:center;
+    min-height:600px;
     background:linear-gradient(180deg, #0a1f44 0%, #091a38 100%);
 }
 
@@ -171,14 +138,19 @@ nav {
     max-width:1100px;
     margin:auto;
     display:flex;
-    gap:60px;
+    align-items:center; /* THIS FIXES TOP HEAVY */
+    gap:80px;
     flex-wrap:wrap;
 }
 
-/* timeline */
+/* TIMELINE */
 .timeline {
     position:relative;
-    min-width:120px;
+    min-width:180px;
+    height:100%; 
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly; 
 }
 
 .timeline-line {
@@ -193,8 +165,8 @@ nav {
 .timeline-item {
     display:flex;
     align-items:center;
-    gap:10px;
-    margin-bottom:30px;
+    gap:12px;
+    margin:40px 0; /* MORE EVEN SPACING */
 }
 
 .timeline-dot {
@@ -202,54 +174,66 @@ nav {
     height:14px;
     background:#3b82f6;
     border-radius:50%;
-    box-shadow:0 0 10px #3b82f6;
+    box-shadow:0 0 12px #3b82f6;
 }
 
 .timeline-item span {
     font-size:14px;
-    opacity:0.7;
+    opacity:0.75;
 }
 
-/* content */
+/* CONTENT */
 .history-content {
     flex:1;
 }
 
 .history-content h2 {
-    font-size:2.2rem;
-    margin-bottom:20px;
+    font-size:2.4rem;
+    margin-bottom:25px;
 }
 
 .history-content p {
     opacity:0.75;
-    line-height:1.7;
-    margin-bottom:20px;
+    line-height:1.8;
+    margin-bottom:22px;
 }
 
-/* founder card */
+/* STATS */
+.stats {
+    display:flex;
+    gap:50px;
+    margin:35px 0;
+}
+
+.stat {
+    text-align:center;
+}
+
+.stat h3 {
+    font-size:2.2rem;
+    color:#3b82f6;
+}
+
+.stat p {
+    font-size:13px;
+    opacity:0.7;
+}
+
+/* FOUNDER CARD */
 .founder-card {
-    margin-top:30px;
+    margin-top:35px;
     padding:25px;
     border-radius:16px;
     background:rgba(255,255,255,0.06);
     backdrop-filter:blur(14px);
     border:1px solid rgba(255,255,255,0.08);
-    transition:0.3s;
 }
 
-.founder-card:hover {
-    transform:translateY(-5px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 footer {
     padding:30px;
     text-align:center;
     opacity:0.5;
-    font-size:14px;
 }
 
 </style>
@@ -257,12 +241,9 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
 <div class="nav-logo">
-    <a href="index.html">
-        <img src="btn.png" alt="TEK Logo">
-    </a>
+    <a href="index.html"><img src="btn.png"></a>
 </div>
 
 <div class="nav-links">
@@ -274,93 +255,84 @@ footer {
 </div>
 </nav>
 
-<!-- HERO -->
 <section class="page-hero">
-    <h1>About TEK</h1>
-    <p>Technology • Business • Innovation</p>
+<h1>About TEK</h1>
+<p>Technology • Business • Innovation</p>
 </section>
 
-<!-- ABOUT -->
 <section class="about-container">
 
-    <div class="about-card">
-        <div class="about-icon"><i class="fas fa-users"></i></div>
-        <h3>Who We Are</h3>
-        <p>
-        Tau Epsilon Kappa (TEK) at Indiana University is a selective, co-ed professional technology fraternity built for students who want to go beyond the classroom.
-        </p>
-    </div>
+<div class="about-card">
+<div class="about-icon"><i class="fas fa-users"></i></div>
+<h3>Who We Are</h3>
+<p>TEK at IU is a selective professional technology fraternity for students who want more than the classroom.</p>
+</div>
 
-    <div class="about-card">
-        <div class="about-icon"><i class="fas fa-laptop-code"></i></div>
-        <h3>What We Do</h3>
-        <p>
-        We host technical workshops, industry panels, and hands-on projects that prepare our members for top careers in tech and business.
-        </p>
-    </div>
+<div class="about-card">
+<div class="about-icon"><i class="fas fa-laptop-code"></i></div>
+<h3>What We Do</h3>
+<p>Workshops, projects, and industry connections that prepare members for top careers.</p>
+</div>
 
-    <div class="about-card">
-        <div class="about-icon"><i class="fas fa-network-wired"></i></div>
-        <h3>Our Community</h3>
-        <p>
-        TEK is a network of ambitious students who collaborate, support one another, and build lifelong professional connections.
-        </p>
-    </div>
+<div class="about-card">
+<div class="about-icon"><i class="fas fa-network-wired"></i></div>
+<h3>Our Community</h3>
+<p>A network of driven students building lasting relationships and professional growth.</p>
+</div>
 
 </section>
 
-<!-- HISTORY -->
 <section class="history-section">
-    <div class="history-container">
+<div class="history-container">
 
-        <div class="timeline">
-            <div class="timeline-line"></div>
+<div class="timeline">
+<div class="timeline-line"></div>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <span>2026</span>
-            </div>
+<div class="timeline-item"><div class="timeline-dot"></div><span>Spring 2022 — Founded at UMich</span></div>
+<div class="timeline-item"><div class="timeline-dot"></div><span>Fall 2025 — Expansion to IU Begins</span></div>
+<div class="timeline-item"><div class="timeline-dot"></div><span>Spring 2026 — IU Beta Chapter Founded</span></div>
+<div class="timeline-item"><div class="timeline-dot"></div><span>Late Spring 2026 — IU Alpha Class Initiation</span></div>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <span>Founding</span>
-            </div>
+</div>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <span>Beta Chapter</span>
-            </div>
-        </div>
+<div class="history-content">
 
-        <div class="history-content">
+<h2>From One Idea to a Growing Legacy</h2>
 
-            <h2>From One Idea to a Growing Legacy</h2>
+<p>
+Tau Epsilon Kappa was founded at the University of Michigan – Ann Arbor by <strong>Trisha Kant</strong> in Spring 2022, creating a space where students passionate about technology and growth could build something meaningful together.
+</p>
 
-            <p>
-            Tau Epsilon Kappa at Indiana University began with a vision — to build a community where students passionate about technology and innovation could grow together.
-            </p>
+<p>
+Today, TEK’s alumni network continues to play a vital role within the organization. Alumni serve as career advocates, mentors, and close friends — remaining deeply connected to the community they helped build.
+</p>
 
-            <p>
-            Founded by <strong>Neeharika Nair and Alekhya Vadiala</strong>, the IU chapter represents the <strong>Beta Chapter</strong> of Tau Epsilon Kappa.
-            </p>
+<div class="stats">
+<div class="stat"><h3>50+</h3><p>Alumni</p></div>
+<div class="stat"><h3>60+</h3><p>Companies</p></div>
+<div class="stat"><h3>3</h3><p>Graduating Classes</p></div>
+</div>
 
-            <p>
-            What started as an idea quickly became a movement — bringing together driven students seeking more than just a resume boost.
-            </p>
+<p>
+The expansion to Indiana University began in Fall 2025, when early conversations sparked the vision of bringing TEK’s mission to a new campus.
+</p>
 
-            <div class="founder-card">
-                <h4>Founding Vision</h4>
-                <p>
-                TEK IU was built to empower students, foster collaboration, and create lasting impact on campus and beyond.
-                </p>
-            </div>
+<p>
+Founded by <strong>Neeharika Nair and Alekhya Vadiala</strong>, the IU chapter was officially established in Spring 2026 as the Beta Chapter — bringing together a new generation of driven and collaborative students.
+</p>
 
-        </div>
+<div class="founder-card">
+<h4>Building the Future at IU</h4>
+<p>
+With its Alpha Class, TEK IU is establishing the foundation for a lasting legacy — one focused on innovation, growth, and a community that extends far beyond college.
+</p>
+</div>
 
-    </div>
+</div>
+
+</div>
 </section>
 
-<!-- FOOTER -->
 <footer>
 © 2026 Tau Epsilon Kappa — Indiana University
 </footer>
