@@ -413,8 +413,9 @@ footer {
 
 </section>
 
-<div id="modal" onclick="this.style.display='none'">
-<img id="modalImg">
+<!-- MODAL - FIXED -->
+<div id="modal" onclick="closeModal(event)">
+    <img id="modalImg" onclick="event.stopImmediatePropagation()">
 </div>
 
 <footer>
@@ -422,13 +423,29 @@ footer {
 </footer>
 
 <script>
+<script>
 function openModal(src) {
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modalImg");
-
+    
     modal.style.display = "flex";
     modalImg.src = src;
 }
+
+function closeModal(e) {
+    // Only close if clicking the background, not the image
+    if (e.target.id === "modal") {
+        e.currentTarget.style.display = "none";
+    }
+}
+
+// Optional: Close with Escape key
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        document.getElementById("modal").style.display = "none";
+    }
+});
+</script>
 let cards = document.querySelectorAll(".card");
 let index = 0;
 
