@@ -314,15 +314,13 @@ footer {
 
     <div class="carousel-wrapper">
 
-        <!-- Left Arrow -->
-        <button class="carousel-arrow left-arrow" onclick="move(-1)" aria-label="Previous">
-            ❮
-        </button>
+<button class="carousel-arrow left-arrow" onclick="move(-1); event.stopPropagation();" aria-label="Previous">
+    ❮
+</button>
 
-        <!-- Right Arrow -->
-        <button class="carousel-arrow right-arrow" onclick="move(1)" aria-label="Next">
-            ❯
-        </button>
+<button class="carousel-arrow right-arrow" onclick="move(1); event.stopPropagation();" aria-label="Next">
+    ❯
+</button>
 
         <!-- Cards -->
         <div class="card center">
