@@ -108,20 +108,21 @@
     }
 
 /* =========================
-   COUNTER SECTION (GLASS)
+   COUNTER SECTION (FINAL)
 ========================= */
 .counter-section {
     display: flex;
     justify-content: center;
-    padding: 40px 20px 10px;
+    padding: 10px 20px 0px;
+    margin-top: -20px;
 }
 
 .counter-container {
     display: flex;
-    justify-content: space-between;
-    gap: 60px;
+    justify-content: center;
+    gap: 70px;
 
-    padding: 30px 50px;
+    padding: 28px 60px;
     border-radius: 18px;
 
     background: rgba(255, 255, 255, 0.08);
@@ -135,24 +136,31 @@
         inset 0 0 20px rgba(255,255,255,0.05);
 }
 
+.counter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+}
+
 /* NUMBER */
 .counter-box h3 {
     font-size: 2.8rem;
     font-weight: 700;
-
-    color: #a8d8ff; /* softer tech blue */
-
+    color: #a8d8ff;
     letter-spacing: 1px;
+    margin-bottom: 6px;
+
+    text-shadow: 0 0 12px rgba(168,216,255,0.35);
 }
 
 /* LABEL */
 .counter-box p {
-    margin-top: 6px;
     font-size: 0.85rem;
-
     color: rgba(255,255,255,0.75);
-
     letter-spacing: 1.5px;
+    line-height: 1.2;
 }
 
 /* MOBILE */
@@ -162,9 +170,7 @@
         align-items: center;
         gap: 25px;
     }
-}
-
-        
+}  
     /* =========================
        SECTIONS
     ========================= */
@@ -337,7 +343,7 @@
 
         <div class="counter-box">
             <h3 class="counter" data-target="8">0</h3>
-            <p>ACTIVE MEMBERS</p>
+            <p>ACTIVE<br>MEMBERS</p>
         </div>
 
         <div class="counter-box">
