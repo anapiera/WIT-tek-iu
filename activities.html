@@ -423,7 +423,6 @@ footer {
 </footer>
 
 <script>
-<script>
 function openModal(src) {
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modalImg");
@@ -433,19 +432,17 @@ function openModal(src) {
 }
 
 function closeModal(e) {
-    // Only close if clicking the background, not the image
     if (e.target.id === "modal") {
         e.currentTarget.style.display = "none";
     }
 }
 
-// Optional: Close with Escape key
 document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") {
         document.getElementById("modal").style.display = "none";
     }
 });
-</script>
+
 let cards = document.querySelectorAll(".card");
 let index = 0;
 
@@ -465,7 +462,6 @@ function move(dir) {
     updateCards();
 }
 
-// Click on left or right side also works
 document.querySelector(".carousel-wrapper").addEventListener("click", (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
@@ -476,7 +472,6 @@ document.querySelector(".carousel-wrapper").addEventListener("click", (e) => {
         move(1);
     }
 });
-
 </script>
 
 </body>
