@@ -305,7 +305,12 @@ nav {
     line-height: 1.6;
     opacity: 0.9;
 }
-
+.why-container {
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
 /* FLOATING BACKGROUND */
 .floating-bg span {
     position: absolute;
@@ -586,6 +591,7 @@ footer {
 <footer>
 © 2026 Tau Epsilon Kappa — Indiana University
 </footer>
+<script>
 // WHY TEK scroll reveal
 const whyCards = document.querySelectorAll('.why-card');
 
@@ -608,5 +614,6 @@ whyCards.forEach(card => {
     card.style.transform = "translateY(40px)";
     card.style.transition = "all 0.6s ease";
 });
+</script>
 </body>
 </html>
