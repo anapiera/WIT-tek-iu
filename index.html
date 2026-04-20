@@ -280,7 +280,22 @@ nav {
 
     transition: all 0.4s ease;
 }
+.why-cta {
+    margin-top: 140px;
 
+    font-size: 1.3rem;
+    color: #7ecbff;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(12px); }
+}
+    
 /* GLOW EFFECT */
 .why-card::before {
     content: "";
@@ -325,29 +340,30 @@ nav {
 .floating-bg {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
     overflow: hidden;
 }
 
 .floating-bg span {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 
     background: radial-gradient(
-        circle at 30% 30%,
-        rgba(126,203,255,0.35),
-        rgba(59,130,246,0.15),
+        circle at 40% 40%,
+        rgba(126,203,255,0.6),
+        rgba(59,130,246,0.35),
+        rgba(30,64,175,0.15),
         transparent 70%
     );
 
-    filter: blur(80px);
-    opacity: 0.5;
+    filter: blur(100px);
+    opacity: 0.7;
 
     border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%;
 
-    animation: blobMove 20s infinite ease-in-out;
+    animation: blobMove 22s infinite ease-in-out;
 }
 
 /* positions */
