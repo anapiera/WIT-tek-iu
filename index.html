@@ -240,10 +240,18 @@ nav {
     letter-spacing: 2px;
 }
 
-.why-subtitle {
-    color: #cbd5f5;
-    margin-bottom: 60px;
-    font-size: 1.1rem;
+.why-tagline {
+    margin-top: 20px;
+    margin-bottom: 70px;
+
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    line-height: 1.6;
+
+    color: #e0f2ff;
+    opacity: 0.9;
+
+    font-weight: 500;
 }
 
 .why-subtitle span {
@@ -254,7 +262,7 @@ nav {
 .why-cards {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 60px;
     flex-wrap: wrap;
 }
 
@@ -284,8 +292,8 @@ nav {
     border-radius: 20px;
 
     background: linear-gradient(135deg, #7ecbff, #3b82f6, #60a5fa);
-    filter: blur(25px);
-    opacity: 0.5;
+    filter: blur(18px);
+    opacity: 0.35;
     z-index: -1;
 }
 
@@ -314,16 +322,18 @@ nav {
 /* FLOATING BACKGROUND */
 .floating-bg span {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
 
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
-    border-radius: 30px;
+    background: radial-gradient(circle at 30% 30%, rgba(126,203,255,0.5), rgba(59,130,246,0.15));
 
-    filter: blur(80px);
-    opacity: 0.3;
+    border-radius: 50%;
+    backdrop-filter: blur(20px);
 
-    animation: floatMove 12s infinite ease-in-out;
+    filter: blur(40px);
+    opacity: 0.25;
+
+    animation: floatMove 14s infinite ease-in-out;
 }
 
 .floating-bg span:nth-child(1) {
@@ -486,57 +496,58 @@ footer {
             Why ΤΕΚ?
         </h2>
 
-        <p class="why-subtitle">
-            Built for where business is going — not where it’s been.
-        </p>
+<p class="why-tagline">
+    BUILT FOR WHERE BUSINESS IS GOING<br>
+    NOT WHERE IT’S BEEN
+</p>
 
         <div class="why-cards">
 
             <!-- CARD 1 -->
             <div class="why-card">
                 <h3>Built for What’s Next</h3>
-                <p>
-                    The landscape is shifting — fast.
-                    <br><br>
-                    AI, data, and automation are changing how companies operate, how decisions are made,
-                    and what skills actually matter.
-                    <br><br>
-                    ΤΕΚ exists for students who want to understand that shift early —
-                    and position themselves ahead of it.
-                </p>
+<p>
+    The landscape is shifting fast.
+    <br><br>
+    AI, data, and automation are changing how companies operate, how decisions are made,
+    and what skills actually matter.
+    <br><br>
+    ΤΕΚ is for students who want to understand that shift early
+    and position themselves ahead of it.
+</p>
             </div>
 
             <!-- CARD 2 -->
             <div class="why-card">
                 <h3>More Than a Traditional Business Fraternity</h3>
-                <p>
-                    Most organizations focus on networking within existing systems.
-                    <br><br>
-                    We focus on understanding how those systems are evolving —
-                    and how to work at the intersection of business, technology, and data.
-                    <br><br>
-                    This is where analytical thinking meets real-world application.
-                </p>
+<p>
+    Most organizations focus on networking within existing systems.
+    <br><br>
+    We focus on understanding how those systems are evolving
+    and how to work at the intersection of business, technology, and data.
+    <br><br>
+    This is where analytical thinking meets real-world application.
+</p>
             </div>
 
             <!-- CARD 3 -->
             <div class="why-card">
-                <h3>Start Something Early</h3>
-                <p>
-                    ΤΕΚ is still in its early stages — which means opportunity.
-                    <br><br>
-                    The people here aren’t just joining an organization —
-                    they’re helping shape what it becomes.
-                    <br><br>
-                    That kind of environment attracts a different level of ambition.
-                </p>
+                <h3>Be There at the Beginning</h3>
+<p>
+    ΤΕΚ at IU is still in its early stages, which means real opportunity.
+    <br><br>
+    The people here are not just joining an organization.
+    They are helping shape what it becomes.
+    <br><br>
+    That kind of environment attracts a different level of ambition.
+</p>
             </div>
 
         </div>
 
         <!-- CTA -->
         <div class="why-cta">
-            <p>See how to get involved ↓</p>
+<p>START RUSH ↓</p>
         </div>
 
     </div>
