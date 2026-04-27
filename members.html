@@ -288,8 +288,13 @@ nav {
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
+    display: block;
 }
-
+/* wrapper to contain overlay */
+.image-wrap {
+    position: relative;
+    width: 100%;
+}
 /* NAME + ROLE */
 .card-front h3 {
     margin-top: 10px;
@@ -317,7 +322,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 240px;
+    height: 100%;
 
     background: rgba(10,31,68,0.65);
     backdrop-filter: blur(4px);
@@ -328,10 +333,10 @@ nav {
 
     opacity: 0;
     transition: 0.3s;
+
     border-radius: 10px;
 }
-
-.exec-card:hover .overlay {
+.image-wrap:hover .overlay {
     opacity: 1;
 }
 
@@ -384,9 +389,11 @@ nav {
 
 /* MAJOR */
 .card-back .major {
-    font-size: 12px;
-    opacity: 0.7;
-    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 10px 0 14px 0;
+    opacity: 0.9;
 }
 
 /* BOTTOM LINE DESIGN */
@@ -402,18 +409,15 @@ nav {
 .specialization {
     display: inline-block;
     margin-top: 6px;
-    padding: 4px 10px;
+    padding: 5px 12px;
 
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.4px;
 
     color: #0a1f44;
     background: #7ecbff;
 
     border-radius: 999px;
-
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
     /* =========================
        MEMBERS GRID & CARDS
@@ -546,11 +550,16 @@ nav {
 <!-- 1 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Niki_N_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Neeharika Nair</h3>
 <p>President</p>
+
 <a href="https://www.linkedin.com/in/neeharikanair/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -561,28 +570,34 @@ nav {
 <div class="name">Neeharika Nair</div>
 <div class="role">President</div>
 
+<div class="major">
+Majoring in Computer Science
+<div class="specialization">Artificial Intelligence</div>
+</div>
+
 <div class="bio">
 Leads TEK’s strategic vision and long-term growth, focusing on building a high-performing organization at the intersection of AI, business, and data-driven decision making.
 </div>
 
-<div class="major">
-Computer Science
-<div class="specialization">Artificial Intelligence</div>
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 <!-- 2 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Alekhya_V_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Alekhya Vadiala</h3>
 <p>Executive VP</p>
+
 <a href="https://www.linkedin.com/in/alekhya-vadiala-176999324/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -593,28 +608,34 @@ Computer Science
 <div class="name">Alekhya Vadiala</div>
 <div class="role">Executive VP</div>
 
+<div class="major">
+Majoring in Intelligent Systems Engineering
+<div class="specialization">Nanotechnology</div>
+</div>
+
 <div class="bio">
 Drives execution across all initiatives, ensuring TEK operates efficiently while scaling its impact across campus and aligning operations with long-term strategic goals.
 </div>
 
-<div class="major">
-Intelligent Systems Engineering
-<div class="specialization">Nanotechnology</div>
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 <!-- 3 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Caroline_C_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Caroline Conway</h3>
 <p>VP Social Engagement</p>
+
 <a href="https://www.linkedin.com/in/carolineconway2006/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -625,28 +646,34 @@ Intelligent Systems Engineering
 <div class="name">Caroline Conway</div>
 <div class="role">VP Social Engagement</div>
 
+<div class="major">
+Majoring in Tourism, Hospitality, and Event Management
+<div class="specialization">Public Health Focus</div>
+</div>
+
 <div class="bio">
 Designs and executes high-impact events that strengthen community and culture, fostering meaningful connections across TEK’s growing network of members.
 </div>
 
-<div class="major">
-Tourism, Hospitality, and Event Management
-<div class="specialization">Public Health Focus</div>
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 <!-- 4 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Tessa_T_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Tessa Troyer</h3>
 <p>VP Finance</p>
+
 <a href="https://www.linkedin.com/in/tessa-troyer-vw/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -657,27 +684,33 @@ Tourism, Hospitality, and Event Management
 <div class="name">Tessa Troyer</div>
 <div class="role">VP Finance</div>
 
+<div class="major">
+Majoring in Finance
+</div>
+
 <div class="bio">
 Oversees financial strategy, budgeting, and resource allocation, ensuring TEK’s initiatives are sustainable and aligned with long-term organizational growth.
 </div>
 
-<div class="major">
-Finance
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 <!-- 5 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Genny_F_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Genny Foulk</h3>
 <p>VP Operations</p>
+
 <a href="https://www.linkedin.com/in/genny-foulk-2073ba348/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -688,28 +721,34 @@ Finance
 <div class="name">Genny Foulk</div>
 <div class="role">VP Operations</div>
 
+<div class="major">
+Majoring in Intelligent Systems Engineering
+<div class="specialization">Bioengineering</div>
+</div>
+
 <div class="bio">
 Optimizes internal systems and workflows to ensure efficient execution of TEK’s initiatives, focusing on scalability and operational excellence.
 </div>
 
-<div class="major">
-Intelligent Systems Engineering
-<div class="specialization">Bioengineering</div>
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 <!-- 6 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Martin_V_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Martin Vidal</h3>
 <p>VP Professional Development</p>
+
 <a href="https://www.linkedin.com/in/martin-vidal-luddy/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -720,28 +759,34 @@ Intelligent Systems Engineering
 <div class="name">Martin Vidal</div>
 <div class="role">VP Professional Development</div>
 
+<div class="major">
+Majoring in Intelligent Systems Engineering
+<div class="specialization">Cyber-Physical Systems</div>
+</div>
+
 <div class="bio">
 Leads career-focused programming, connecting members with industry opportunities and building technical and professional skills for competitive careers.
 </div>
 
-<div class="major">
-Intelligent Systems Engineering
-<div class="specialization">Cyber-Physical Systems</div>
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 <!-- 7 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Tanner_G_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Tanner Gault</h3>
 <p>VP Recruitment</p>
+
 <a href="https://www.linkedin.com/in/tannergault/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -752,28 +797,34 @@ Intelligent Systems Engineering
 <div class="name">Tanner Gault</div>
 <div class="role">VP Recruitment</div>
 
+<div class="major">
+Majoring in Intelligent Systems Engineering
+<div class="specialization">Cyber-Physical Systems</div>
+</div>
+
 <div class="bio">
 Builds TEK’s future by identifying and recruiting high-potential students, shaping a competitive and forward-thinking member base.
 </div>
 
-<div class="major">
-Intelligent Systems Engineering
-<div class="specialization">Cyber-Physical Systems</div>
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 <!-- 8 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
 <div class="card-inner">
+
 <div class="card-front">
+<div class="image-wrap">
 <img src="exec/Jaiden_M_hs.jpg">
 <div class="overlay"><span>VIEW BIO</span></div>
+</div>
+
 <h3>Jaiden Medina</h3>
 <p>VP Technical Development</p>
+
 <a href="https://www.linkedin.com/in/jaiden-medina/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
 </a>
@@ -784,23 +835,24 @@ Intelligent Systems Engineering
 <div class="name">Jaiden Medina</div>
 <div class="role">VP Technical Development</div>
 
+<div class="major">
+Majoring in Computer Engineering
+</div>
+
 <div class="bio">
 Leads technical initiatives and digital infrastructure, including web development and systems integration that enhance TEK’s digital presence.
 </div>
 
-<div class="major">
-Computer Engineering
+</div>
 </div>
 
-</div>
-</div>
 </div>
 </div>
 
 </div>
 </section>
 
-<!-- MEMBERS -->
+
 <!-- MEMBERS -->
 <section class="section">
 <h2>Alpha Class</h2>
