@@ -275,13 +275,16 @@ nav {
 
 .card-front {
     background: rgba(255,255,255,0.05);
-    padding: 16px 18px;
+    padding: 14px 16px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    justify-content: space-between; /* KEY FIX */
+    justify-content: flex-start; /* FIX */
+}
+.card-front .linkedin-btn {
+    margin-top: auto;
 }
 
 /* IMAGE FIX (KEY PART) */
@@ -355,7 +358,6 @@ nav {
 /* =========================
    BACK (HIGH-END PROFILE)
 ========================= */
-
 .card-back {
     transform: rotateY(-180deg);
 
@@ -363,14 +365,13 @@ nav {
         180deg,
         #102a5c 0%,
         #0a1f44 100%
-        gap: 10px;
     );
 
     color: white;
-    padding: 22px;
+    padding: 20px;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 /* TOP NAME */
@@ -460,7 +461,57 @@ nav {
         margin-bottom: 16px;
         line-height: 1.4;
     }
+.card-back-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
+/* fixed major box */
+.major-box {
+    background: rgba(126,203,255,0.12);
+    border: 1px solid rgba(126,203,255,0.3);
+
+    padding: 10px;
+    border-radius: 10px;
+
+    margin: 10px 0;
+
+    min-height: 70px; /* KEY: forces equal size */
+}
+
+/* major text */
+.major-box .major {
+    font-size: 14px;
+    font-weight: 500;
+    color: #7ecbff;
+}
+
+/* specialization text */
+.major-box .specialization {
+    font-size: 11px;
+    margin-top: 6px;
+    color: #7ecbff;
+}
+
+/* bio fills remaining space */
+.card-back .bio {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0.85;
+
+    flex-grow: 1; /* KEY */
+}
+
+/* bottom line always aligned */
+.card-back::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #7ecbff;
+    border-radius: 2px;
+    margin-top: 10px;
+}
     /* =========================
        LINKEDIN BUTTON
     ========================= */
@@ -573,13 +624,14 @@ nav {
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Neeharika Nair</div>
 <div class="role">President</div>
 
-<div class="major">
-Majoring in Computer Science
-<div class="specialization">Specializing in Artificial Intelligence</div>
+<div class="major-box">
+    <div class="major">Majoring in Computer Science</div>
+    <div class="specialization">Specializing in Artificial Intelligence</div>
 </div>
 
 <div class="bio">
@@ -611,13 +663,14 @@ Leads TEK’s strategic vision and long-term growth, focusing on building a high
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Alekhya Vadiala</div>
 <div class="role">Executive VP</div>
 
-<div class="major">
-Majoring in Intelligent Systems Engineering
-<div class="specialization">Specializing in Nanotechnology</div>
+<div class="major-box">
+    <div class="major">Majoring in Intelligent Systems Engineering</div>
+    <div class="specialization">Specializing in Nanotechnology</div>
 </div>
 
 <div class="bio">
@@ -649,13 +702,14 @@ Drives execution across all initiatives, ensuring TEK operates efficiently while
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Caroline Conway</div>
 <div class="role">VP Social Engagement</div>
 
-<div class="major">
-Majoring in Tourism, Hospitality, and Event Management
-<div class="specialization">Focus in Public Health Focus</div>
+<div class="major-box">
+    <div class="major">Majoring in Tourism, Hospitality, and Event Management</div>
+    <div class="specialization">Focus in Public Health</div>
 </div>
 
 <div class="bio">
@@ -687,12 +741,13 @@ Designs and executes high-impact events that strengthen community and culture, f
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Tessa Troyer</div>
 <div class="role">VP Finance</div>
 
-<div class="major">
-Majoring in Finance
+<div class="major-box">
+    <div class="major">Majoring in Finance</div>
 </div>
 
 <div class="bio">
@@ -724,13 +779,14 @@ Oversees financial strategy, budgeting, and resource allocation, ensuring TEK’
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Genny Foulk</div>
 <div class="role">VP Operations</div>
 
-<div class="major">
-Majoring in Intelligent Systems Engineering
-<div class="specialization">Specializing in Bioengineering</div>
+<div class="major-box">
+    <div class="major">Majoring in Intelligent Systems Engineering</div>
+    <div class="specialization">Specializing in Bioengineering</div>
 </div>
 
 <div class="bio">
@@ -739,7 +795,6 @@ Optimizes internal systems and workflows to ensure efficient execution of TEK’
 
 </div>
 </div>
-
 </div>
 </div>
 
@@ -762,13 +817,14 @@ Optimizes internal systems and workflows to ensure efficient execution of TEK’
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Martin Vidal</div>
 <div class="role">VP Professional Development</div>
 
-<div class="major">
-Majoring in Intelligent Systems Engineering
-<div class="specialization">Specializing in Cyber-Physical Systems</div>
+<div class="major-box">
+    <div class="major">Majoring in Intelligent Systems Engineering</div>
+    <div class="specialization">Specializing in Cyber-Physical Systems</div>
 </div>
 
 <div class="bio">
@@ -800,13 +856,14 @@ Leads career-focused programming, connecting members with industry opportunities
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Tanner Gault</div>
 <div class="role">VP Recruitment</div>
 
-<div class="major">
-Majoring in Intelligent Systems Engineering
-<div class="specialization">Specializing in Cyber-Physical Systems</div>
+<div class="major-box">
+    <div class="major">Majoring in Intelligent Systems Engineering</div>
+    <div class="specialization">Specializing in Cyber-Physical Systems</div>
 </div>
 
 <div class="bio">
@@ -838,12 +895,13 @@ Builds TEK’s future by identifying and recruiting high-potential students, sha
 </div>
 
 <div class="card-back">
-<div>
+<div class="card-back-content">
+
 <div class="name">Jaiden Medina</div>
 <div class="role">VP Technical Development</div>
 
-<div class="major">
-Majoring in Computer Engineering
+<div class="major-box">
+    <div class="major">Majoring in Computer Engineering</div>
 </div>
 
 <div class="bio">
