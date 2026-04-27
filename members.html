@@ -242,16 +242,6 @@ nav {
     object-fit: cover;
     display: block;
 }
-.card-front .text-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    flex: 1;
-    gap: 6px;
-    text-align: center;
-}
 
 /* TEXT BLOCK (this is the key balance fix) */
 .card-front .text-block {
@@ -325,17 +315,6 @@ nav {
     left: 0;
 }
 
-/* =========================
-   CARD BACK — PROFILE STYLE
-========================= */
-.card-back {
-    transform: rotateY(-180deg);
-    background: #0d2257;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
 /* =========================
    CARD BACK — PROFILE STYLE
 ========================= */
@@ -468,9 +447,12 @@ nav {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    width: 150px;     
+    height: 42px;       
+
     gap: 8px;
 
-    padding: 12px 26px;   /* taller */
     font-size: 14px;
     font-weight: 600;
 
@@ -479,11 +461,13 @@ nav {
     text-decoration: none;
 
     border-radius: 999px;
-    line-height: 1;
 
     transition: all 0.25s ease;
 }
-
+.exec-card .linkedin-btn,
+.member-card .linkedin-btn {
+    align-self: center;
+}
 .linkedin-btn img {
     width: 16px;
     height: 16px;
