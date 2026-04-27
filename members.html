@@ -275,10 +275,13 @@ nav {
 
 .card-front {
     background: rgba(255,255,255,0.05);
-    padding: 18px;
+    padding: 16px 18px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    justify-content: space-between; /* KEY FIX */
 }
 
 /* IMAGE FIX (KEY PART) */
@@ -297,17 +300,20 @@ nav {
 }
 /* NAME + ROLE */
 .card-front h3 {
-    margin-top: 10px;
-    margin-bottom: 3px;
+    margin-top: 8px;
+    margin-bottom: 2px;
     font-size: 1.2rem;
 }
 
 .card-front p {
     font-size: 0.9rem;
     opacity: 0.8;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
-
+/* keep linkedin */
+.card-front .linkedin-btn {
+    margin-top: 6px;
+}
 /* REMOVE GLOW */
 .exec-card:hover {
     transform: none;
@@ -389,11 +395,12 @@ nav {
 
 /* MAJOR */
 .card-back .major {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
-    line-height: 1.4;
-    margin: 10px 0 14px 0;
-    opacity: 0.9;
+    line-height: 1.5;
+    margin: 12px 0 14px 0;
+
+    color: #7ecbff; /* BLUE */
 }
 
 /* BOTTOM LINE DESIGN */
@@ -572,7 +579,7 @@ nav {
 
 <div class="major">
 Majoring in Computer Science
-<div class="specialization">Artificial Intelligence</div>
+<div class="specialization">Specializing in Artificial Intelligence</div>
 </div>
 
 <div class="bio">
@@ -610,7 +617,7 @@ Leads TEK’s strategic vision and long-term growth, focusing on building a high
 
 <div class="major">
 Majoring in Intelligent Systems Engineering
-<div class="specialization">Nanotechnology</div>
+<div class="specialization">Specializing in Nanotechnology</div>
 </div>
 
 <div class="bio">
@@ -648,7 +655,7 @@ Drives execution across all initiatives, ensuring TEK operates efficiently while
 
 <div class="major">
 Majoring in Tourism, Hospitality, and Event Management
-<div class="specialization">Public Health Focus</div>
+<div class="specialization">Focus in Public Health Focus</div>
 </div>
 
 <div class="bio">
@@ -723,7 +730,7 @@ Oversees financial strategy, budgeting, and resource allocation, ensuring TEK’
 
 <div class="major">
 Majoring in Intelligent Systems Engineering
-<div class="specialization">Bioengineering</div>
+<div class="specialization">Specializing in Bioengineering</div>
 </div>
 
 <div class="bio">
@@ -761,7 +768,7 @@ Optimizes internal systems and workflows to ensure efficient execution of TEK’
 
 <div class="major">
 Majoring in Intelligent Systems Engineering
-<div class="specialization">Cyber-Physical Systems</div>
+<div class="specialization">Specializing in Cyber-Physical Systems</div>
 </div>
 
 <div class="bio">
@@ -799,7 +806,7 @@ Leads career-focused programming, connecting members with industry opportunities
 
 <div class="major">
 Majoring in Intelligent Systems Engineering
-<div class="specialization">Cyber-Physical Systems</div>
+<div class="specialization">Specializing in Cyber-Physical Systems</div>
 </div>
 
 <div class="bio">
