@@ -236,31 +236,30 @@ nav {
         font-weight: 500;
     }
 /* =========================
-   EXEC FLIP CARDS (FINAL)
+   EXEC FLIP CARDS (UPGRADED)
 ========================= */
 
-/* give 3D space */
 .exec-card {
-    perspective: 1000px;
+    perspective: 1200px;
     cursor: pointer;
     height: 380px;
 }
 
-/* inner flip container */
+/* remove double box look */
 .card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.7s ease;
+    transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
     transform-style: preserve-3d;
 }
 
-/* flip trigger */
+/* FLIP FROM RIGHT SIDE */
 .exec-card.flipped .card-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
 }
 
-/* front + back shared */
+/* FRONT + BACK */
 .card-front,
 .card-back {
     position: absolute;
@@ -272,56 +271,98 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-/* FRONT (keeps your look) */
+/* FRONT (single clean card now) */
 .card-front {
     background: rgba(255,255,255,0.06);
     backdrop-filter: blur(12px);
-    padding: 24px 20px;
+
+    padding: 18px 20px;
+    justify-content: flex-start;
 }
 
-/* BACK (JOIN SECTION STYLE) */
-.card-back {
-    transform: rotateY(180deg);
-
-    background: #dbe6f2; /* SAME AS JOIN SECTION */
-    color: #0a1f44; /* NAVY TEXT */
-
-    padding: 24px;
-    text-align: center;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+/* tighten top spacing */
+.card-front h3 {
+    margin-top: 8px;
+    margin-bottom: 2px;
 }
 
-/* back text */
-.card-back h3 {
+.card-front p {
     margin-bottom: 10px;
 }
 
-.card-back p {
-    font-size: 14px;
-    line-height: 1.4;
+/* IMAGE */
+.card-front img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
 }
 
+/* subtle "click hint" */
+.card-front::after {
+    content: "Click to view bio";
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-size: 11px;
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+}
+
+/* BACK — PREMIUM GLASS */
+.card-back {
+    transform: rotateY(-180deg);
+
+    background: rgba(219, 230, 242, 0.75);
+    backdrop-filter: blur(18px);
+
+    color: #0a1f44;
+
+    padding: 26px 20px;
+    justify-content: flex-start;
+    text-align: left;
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.25),
+        inset 0 0 25px rgba(255,255,255,0.25);
+}
+
+/* name on back */
+.card-back h3 {
+    margin-bottom: 8px;
+}
+
+/* divider line (adds polish) */
+.card-back::before {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background: #0a1f44;
+    margin-bottom: 12px;
+    border-radius: 2px;
+}
+
+/* text */
+.card-back p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* bio spacing */
 .card-back .bio {
-    margin-top: 10px;
+    margin-top: 12px;
     opacity: 0.85;
 }
 
-/* image stays clean */
-.card-front img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 12px;
-}
-
-/* hover glow (premium feel) */
+/* hover glow upgrade */
 .exec-card:hover .card-front {
-    box-shadow: 0 0 25px rgba(126,203,255,0.35);
+    box-shadow: 0 0 30px rgba(126,203,255,0.35);
+    transform: translateY(-4px);
 }
     /* =========================
        MEMBERS GRID & CARDS
@@ -467,7 +508,7 @@ nav {
 
         <div class="card-back">
             <h3>Neeharika Nair</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
@@ -490,7 +531,7 @@ nav {
 
         <div class="card-back">
             <h3>Alekhya Vadiala</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
@@ -513,7 +554,7 @@ nav {
 
         <div class="card-back">
             <h3>Caroline Conway</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
@@ -536,7 +577,7 @@ nav {
 
         <div class="card-back">
             <h3>Tessa Troyer</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
@@ -559,7 +600,7 @@ nav {
 
         <div class="card-back">
             <h3>Genny Foulk</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
@@ -582,7 +623,7 @@ nav {
 
         <div class="card-back">
             <h3>Martin Vidal</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
@@ -605,7 +646,7 @@ nav {
 
         <div class="card-back">
             <h3>Tanner Gault</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
@@ -628,7 +669,7 @@ nav {
 
         <div class="card-back">
             <h3>Jaiden Medina</h3>
-            <p><strong>Major:</strong> --</p>
+            <p><strong>Major:</strong><br> --</p>
             <p class="bio">Bio here</p>
         </div>
 
