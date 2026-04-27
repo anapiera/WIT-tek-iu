@@ -236,7 +236,7 @@ nav {
         font-weight: 500;
     }
 /* =========================
-   EXEC FLIP CARDS (UPGRADED)
+   EXEC CARDS FINAL DESIGN
 ========================= */
 
 .exec-card {
@@ -245,7 +245,7 @@ nav {
     height: 380px;
 }
 
-/* remove double box look */
+/* FLIP STRUCTURE */
 .card-inner {
     position: relative;
     width: 100%;
@@ -254,7 +254,6 @@ nav {
     transform-style: preserve-3d;
 }
 
-/* FLIP FROM RIGHT SIDE */
 .exec-card.flipped .card-inner {
     transform: rotateY(-180deg);
 }
@@ -265,104 +264,156 @@ nav {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 12px;
     backface-visibility: hidden;
+    overflow: hidden;
+}
 
+/* =========================
+   FRONT (CLEAN + CONSISTENT)
+========================= */
+
+.card-front {
+    background: rgba(255,255,255,0.05);
+    padding: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* FRONT (single clean card now) */
-.card-front {
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(12px);
-
-    padding: 18px 20px;
-    justify-content: flex-start;
-}
-
-/* tighten top spacing */
-.card-front h3 {
-    margin-top: 8px;
-    margin-bottom: 2px;
-}
-
-.card-front p {
-    margin-bottom: 10px;
-}
-
-/* IMAGE */
+/* IMAGE FIX (KEY PART) */
 .card-front img {
     width: 100%;
     height: 240px;
     object-fit: cover;
-    border-radius: 12px;
+    object-position: center;
+    border-radius: 10px;
+}
+
+/* NAME + ROLE */
+.card-front h3 {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-size: 1.2rem;
+}
+
+.card-front p {
+    font-size: 0.9rem;
+    opacity: 0.8;
     margin-bottom: 10px;
 }
 
-/* subtle "click hint" */
-.card-front::after {
-    content: "Click to view bio";
-    position: absolute;
-    bottom: 12px;
-    right: 14px;
-    font-size: 11px;
-    opacity: 0.6;
-    letter-spacing: 0.5px;
+/* REMOVE GLOW */
+.exec-card:hover {
+    transform: none;
 }
 
-/* BACK — PREMIUM GLASS */
+/* =========================
+   HOVER OVERLAY (VIEW BIO)
+========================= */
+
+.card-front .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 240px;
+
+    background: rgba(10,31,68,0.65);
+    backdrop-filter: blur(4px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.exec-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay span {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   BACK (HIGH-END PROFILE)
+========================= */
+
 .card-back {
     transform: rotateY(-180deg);
 
-    background: rgba(219, 230, 242, 0.75);
-    backdrop-filter: blur(18px);
+    background: linear-gradient(
+        180deg,
+        #102a5c 0%,
+        #0a1f44 100%
+        gap: 10px;
+    );
 
-    color: #0a1f44;
-
-    padding: 26px 20px;
-    justify-content: flex-start;
-    text-align: left;
-
-    border: 1px solid rgba(255,255,255,0.4);
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,0.25),
-        inset 0 0 25px rgba(255,255,255,0.25);
+    color: white;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* name on back */
-.card-back h3 {
-    margin-bottom: 8px;
+/* TOP NAME */
+.card-back .name {
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
-/* divider line (adds polish) */
-.card-back::before {
-    content: "";
-    width: 40px;
-    height: 3px;
-    background: #0a1f44;
+/* ROLE SUBTITLE */
+.card-back .role {
+    font-size: 0.85rem;
+    opacity: 0.7;
     margin-bottom: 12px;
-    border-radius: 2px;
 }
 
-/* text */
-.card-back p {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* bio spacing */
+/* BIO TEXT */
 .card-back .bio {
-    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.5;
     opacity: 0.85;
 }
 
-/* hover glow upgrade */
-.exec-card:hover .card-front {
-    box-shadow: 0 0 30px rgba(126,203,255,0.35);
-    transform: translateY(-4px);
+/* MAJOR */
+.card-back .major {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* BOTTOM LINE DESIGN */
+.card-back::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #7ecbff;
+    border-radius: 2px;
+    margin-top: 12px;
+}
+/* specialization tag */
+.specialization {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 10px;
+
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+
+    color: #0a1f44;
+    background: #7ecbff;
+
+    border-radius: 999px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
     /* =========================
        MEMBERS GRID & CARDS
@@ -494,186 +545,258 @@ nav {
 
 <!-- 1 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Niki_N_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Neeharika Nair</h3>
+<p>President</p>
+<a href="https://www.linkedin.com/in/neeharikanair/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Niki_N_hs.jpg">
-            <h3>Neeharika Nair</h3>
-            <p>President</p>
-            <a href="https://www.linkedin.com/in/neeharikanair/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Neeharika Nair</div>
+<div class="role">President</div>
 
-        <div class="card-back">
-            <h3>Neeharika Nair</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Leads TEK’s strategic vision and long-term growth, focusing on building a high-performing organization at the intersection of AI, business, and data-driven decision making.
+</div>
 
-    </div>
+<div class="major">
+Computer Science
+<div class="specialization">Artificial Intelligence</div>
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 <!-- 2 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Alekhya_V_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Alekhya Vadiala</h3>
+<p>Executive VP</p>
+<a href="https://www.linkedin.com/in/alekhya-vadiala-176999324/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Alekhya_V_hs.jpg">
-            <h3>Alekhya Vadiala</h3>
-            <p>Executive VP</p>
-            <a href="https://www.linkedin.com/in/alekhya-vadiala-176999324/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Alekhya Vadiala</div>
+<div class="role">Executive VP</div>
 
-        <div class="card-back">
-            <h3>Alekhya Vadiala</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Drives execution across all initiatives, ensuring TEK operates efficiently while scaling its impact across campus and aligning operations with long-term strategic goals.
+</div>
 
-    </div>
+<div class="major">
+Intelligent Systems Engineering
+<div class="specialization">Nanotechnology</div>
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 <!-- 3 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Caroline_C_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Caroline Conway</h3>
+<p>VP Social Engagement</p>
+<a href="https://www.linkedin.com/in/carolineconway2006/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Caroline_C_hs.jpg">
-            <h3>Caroline Conway</h3>
-            <p>VP Social Engagement</p>
-            <a href="https://www.linkedin.com/in/carolineconway2006/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Caroline Conway</div>
+<div class="role">VP Social Engagement</div>
 
-        <div class="card-back">
-            <h3>Caroline Conway</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Designs and executes high-impact events that strengthen community and culture, fostering meaningful connections across TEK’s growing network of members.
+</div>
 
-    </div>
+<div class="major">
+Tourism, Hospitality, and Event Management
+<div class="specialization">Public Health Focus</div>
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 <!-- 4 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Tessa_T_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Tessa Troyer</h3>
+<p>VP Finance</p>
+<a href="https://www.linkedin.com/in/tessa-troyer-vw/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Tessa_T_hs.jpg">
-            <h3>Tessa Troyer</h3>
-            <p>VP Finance</p>
-            <a href="https://www.linkedin.com/in/tessa-troyer-vw/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Tessa Troyer</div>
+<div class="role">VP Finance</div>
 
-        <div class="card-back">
-            <h3>Tessa Troyer</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Oversees financial strategy, budgeting, and resource allocation, ensuring TEK’s initiatives are sustainable and aligned with long-term organizational growth.
+</div>
 
-    </div>
+<div class="major">
+Finance
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 <!-- 5 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Genny_F_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Genny Foulk</h3>
+<p>VP Operations</p>
+<a href="https://www.linkedin.com/in/genny-foulk-2073ba348/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Genny_F_hs.jpg">
-            <h3>Genny Foulk</h3>
-            <p>VP Operations</p>
-            <a href="https://www.linkedin.com/in/genny-foulk-2073ba348/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Genny Foulk</div>
+<div class="role">VP Operations</div>
 
-        <div class="card-back">
-            <h3>Genny Foulk</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Optimizes internal systems and workflows to ensure efficient execution of TEK’s initiatives, focusing on scalability and operational excellence.
+</div>
 
-    </div>
+<div class="major">
+Intelligent Systems Engineering
+<div class="specialization">Bioengineering</div>
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 <!-- 6 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Martin_V_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Martin Vidal</h3>
+<p>VP Professional Development</p>
+<a href="https://www.linkedin.com/in/martin-vidal-luddy/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Martin_V_hs.jpg">
-            <h3>Martin Vidal</h3>
-            <p>VP Professional Dev</p>
-            <a href="https://www.linkedin.com/in/martin-vidal-luddy/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Martin Vidal</div>
+<div class="role">VP Professional Development</div>
 
-        <div class="card-back">
-            <h3>Martin Vidal</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Leads career-focused programming, connecting members with industry opportunities and building technical and professional skills for competitive careers.
+</div>
 
-    </div>
+<div class="major">
+Intelligent Systems Engineering
+<div class="specialization">Cyber-Physical Systems</div>
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 <!-- 7 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Tanner_G_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Tanner Gault</h3>
+<p>VP Recruitment</p>
+<a href="https://www.linkedin.com/in/tannergault/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Tanner_G_hs.jpg">
-            <h3>Tanner Gault</h3>
-            <p>VP Recruitment</p>
-            <a href="https://www.linkedin.com/in/tannergault/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Tanner Gault</div>
+<div class="role">VP Recruitment</div>
 
-        <div class="card-back">
-            <h3>Tanner Gault</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Builds TEK’s future by identifying and recruiting high-potential students, shaping a competitive and forward-thinking member base.
+</div>
 
-    </div>
+<div class="major">
+Intelligent Systems Engineering
+<div class="specialization">Cyber-Physical Systems</div>
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 <!-- 8 -->
 <div class="exec-card" onclick="this.classList.toggle('flipped')">
-    <div class="card-inner">
+<div class="card-inner">
+<div class="card-front">
+<img src="exec/Jaiden_M_hs.jpg">
+<div class="overlay"><span>VIEW BIO</span></div>
+<h3>Jaiden Medina</h3>
+<p>VP Technical Development</p>
+<a href="https://www.linkedin.com/in/jaiden-medina/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+</a>
+</div>
 
-        <div class="card-front">
-            <img src="exec/Jaiden_M_hs.jpg">
-            <h3>Jaiden Medina</h3>
-            <p>VP Technical Dev</p>
-            <a href="https://www.linkedin.com/in/jaiden-medina/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">
-                LinkedIn
-            </a>
-        </div>
+<div class="card-back">
+<div>
+<div class="name">Jaiden Medina</div>
+<div class="role">VP Technical Development</div>
 
-        <div class="card-back">
-            <h3>Jaiden Medina</h3>
-            <p><strong>Major:</strong><br> --</p>
-            <p class="bio">Bio here</p>
-        </div>
+<div class="bio">
+Leads technical initiatives and digital infrastructure, including web development and systems integration that enhance TEK’s digital presence.
+</div>
 
-    </div>
+<div class="major">
+Computer Engineering
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </section>
 
