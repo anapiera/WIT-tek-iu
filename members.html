@@ -1,308 +1,1238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEK | Interactive Experience</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="btn2.jpg">
+    <title>Members | TEK IU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<style>
-
+    <style>
 /* =========================
-   GLOBAL
+   RESET
 ========================= */
-body {
-    margin:0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    background:#050a14;
-    color:white;
+}
+
+body {
+    background: #0a1f44;
+    color: white;
+    padding-top: 90px;
 }
 
 /* =========================
-   LAYOUT
+   NAVBAR
 ========================= */
-.dashboard {
-    display:flex;
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 60px;
+    background: rgba(10,31,68,0.75);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    z-index: 1000;
+}
+
+.nav-logo img {
+    height: 70px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.connect-btn {
+    border: 1.5px solid white;
+    padding: 8px 18px;
+    border-radius: 6px;
+}
+
+.connect-btn:hover {
+    background: white;
+    color: #0a1f44;
 }
 
 /* =========================
-   SIDEBAR
+   CONTAINER & HERO
 ========================= */
-.sidebar {
-    width:230px;
-    background:linear-gradient(180deg,#0a1326,#060c18);
-    padding:30px 20px;
-    height:100vh;
-    position:fixed;
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
-.sidebar h2 {
-    color:#7ecbff;
-    margin-bottom:30px;
+.page-hero {
+    text-align: center;
+    padding: 80px 0 60px 0;
 }
 
-.sidebar a {
-    display:block;
-    margin:15px 0;
-    color:#9fb3c8;
-    text-decoration:none;
-    transition:.2s;
-}
-
-.sidebar a:hover {
-    color:white;
+.page-hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
 }
 
 /* =========================
-   MAIN
+   COUNTER SECTION
 ========================= */
-.main {
-    margin-left:230px;
-    padding:40px;
-    width:100%;
+.counter-section {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px 0px;
+    margin-top: -20px;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    padding: 28px 60px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25), inset 0 0 20px rgba(255,255,255,0.05);
+}
+
+.counter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+}
+
+.counter-box h3 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #a8d8ff;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    text-shadow: 0 0 12px rgba(168,216,255,0.35);
+}
+
+.counter-box p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .counter-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
 }
 
 /* =========================
-   HERO / HEADER
+   SECTIONS
 ========================= */
-.top-bar {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
 }
 
-.top-bar h1 {
-    font-size:2.2rem;
-}
-
-.metrics {
-    display:flex;
-    gap:20px;
-}
-
-.metric {
-    background:rgba(255,255,255,0.05);
-    padding:15px 20px;
-    border-radius:10px;
-    text-align:center;
-    min-width:120px;
-    backdrop-filter:blur(10px);
-}
-
-.metric h2 {
-    color:#7ecbff;
-    margin:0;
+.section h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 50px;
+    font-weight: 600;
 }
 
 /* =========================
-   GRID
+   EXEC GRID
 ========================= */
-.grid {
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:25px;
-}
-
-.grid-bottom {
-    margin-top:25px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
+.exec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
 }
 
 /* =========================
-   CARDS
+   EXEC CARD — FLIP CONTAINER
 ========================= */
-.card {
-    background:rgba(255,255,255,0.04);
-    border-radius:14px;
-    padding:20px;
-    backdrop-filter:blur(15px);
-    box-shadow:0 0 25px rgba(0,120,255,0.05);
+.exec-card {
+    perspective: 1200px;
+    cursor: pointer;
+    height: 400px;
+    max-width: 300px;
+    width: 100%;
 }
 
-.card h3 {
-    margin-bottom:15px;
-    color:#7ecbff;
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+    transform-style: preserve-3d;
+}
+
+.exec-card.flipped .card-inner {
+    transform: rotateY(-180deg);
+}
+
+
+/* =========================
+   CARD FRONT
+========================= */
+.card-front {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    padding: 18px 16px 18px;
+    overflow: hidden; /* IMPORTANT */
+}
+
+/* IMAGE */
+.image-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* TEXT BLOCK (this is the key balance fix) */
+.card-front .text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1; /* fills middle space evenly */
+    gap: 6px;
+    text-align: center;
+}
+
+/* NAME */
+.card-front h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ROLE */
+.card-front p {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* BUTTON POSITION */
+.card-front .linkedin-btn {
+    margin-top: auto;
+}
+
+/* Hover overlay on image */
+.card-front .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10,31,68,0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.image-wrap:hover .overlay {
+    opacity: 1;
+}
+
+.overlay span {
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+/* =========================
+   CARD FRONT
+========================= */
+
+/* ADD THIS RIGHT HERE */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
 }
 
 /* =========================
-   MAP / TRIDENT
+   CARD BACK — PROFILE STYLE
 ========================= */
-.visual {
-    height:300px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.card-back {
+    transform: rotateY(-180deg);
+    background: #0d2257;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
-.visual img {
-    width:250px;
-    opacity:0.85;
-    filter:drop-shadow(0 0 40px #3b82f6);
+/* Curved wave accent at top */
+.card-back-wave {
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(135deg, #1a3a7a 0%, #1e4494 100%);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-back-wave::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: #0d2257;
+    border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+}
+
+/* Initials circle sitting on wave */
+.card-back-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 3px solid #0d2257;
+
+    margin: -34px auto 8px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.card-back-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content area */
+.card-back-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 18px 16px;
+    flex: 1;
+    min-height: 0;
+}
+
+.card-back .back-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.card-back .back-role {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7ecbff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Divider */
+.card-back-divider {
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #7ecbff);
+    border-radius: 2px;
+    margin: 0 auto 10px;
+    flex-shrink: 0;
+}
+
+/* Major pill */
+.back-major-pill {
+    background: rgba(126,203,255,0.12);
+    border: 1px solid rgba(126,203,255,0.3);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #a8d8ff;
+    text-align: center;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.back-spec-pill {
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 500;
+    color: #93c5fd;
+    text-align: center;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Bio */
+.card-back .back-bio {
+    font-size: 11.5px;
+    line-height: 1.55;
+    opacity: 0.82;
+    text-align: center;
+    flex: 1;
 }
 
 /* =========================
-   CHART FIX
+   LINKEDIN BUTTON
 ========================= */
-canvas {
-    max-height:220px;
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;     
+    height: 42px;       
+
+    gap: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+
+    border-radius: 999px;
+
+    transition: all 0.25s ease;
+}
+.exec-card .linkedin-btn,
+.member-card .linkedin-btn {
+    align-self: center;
+}
+.linkedin-btn img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
 }
 
-</style>
+.linkedin-btn:hover {
+    transform: translateY(-2px);
+    background: #2563eb;
+}
+
+/* =========================
+   MEMBERS GRID & CARDS
+========================= */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.member-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 22px 18px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-height: 150px;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.08);
+}
+
+.member-card strong {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.member-card .major {
+    opacity: 0.7;
+    font-size: 13px;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.member-card .linkedin-btn {
+    margin-top: auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 50px 20px 30px;
+    opacity: 0.55;
+    font-size: 0.95rem;
+}
+    </style>
 </head>
 
 <body>
 
-<div class="dashboard">
-
-<!-- SIDEBAR -->
-<div class="sidebar">
-    <h2>TEK</h2>
-
-    <a href="#">Overview</a>
-    <a href="#">Members</a>
-    <a href="#">Projects</a>
-    <a href="#">Impact</a>
-    <a href="#">Network</a>
-    <a href="#">Insights</a>
-
-    <br><br>
-    <a href="index.html">← Back to Site</a>
+<!-- NAV -->
+<nav>
+<div class="nav-logo">
+    <a href="index.html"><img src="btn.png"></a>
 </div>
+<div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="members.html">Members</a>
+    <a href="activities.html">Activities</a>
+    <a href="connect.html" class="connect-btn">Connect</a>
+</div>
+</nav>
 
-<!-- MAIN -->
-<div class="main">
+<!-- HERO -->
+<section class="page-hero">
+    <h1>Members</h1>
+</section>
 
-    <!-- TOP -->
-    <div class="top-bar">
-        <h1>TEK Intelligence Dashboard</h1>
-
-        <div class="metrics">
-            <div class="metric">
-                <h2>8</h2>
-                <p>Members</p>
-            </div>
-            <div class="metric">
-                <h2>37</h2>
-                <p>Pledges</p>
-            </div>
-            <div class="metric">
-                <h2>6</h2>
-                <p>Projects</p>
-            </div>
-            <div class="metric">
-                <h2>120+</h2>
-                <p>Hours</p>
-            </div>
+<!-- COUNTERS -->
+<section class="counter-section">
+    <div class="counter-container">
+        <div class="counter-box">
+            <h3 class="counter" data-target="8">0</h3>
+            <p>ACTIVE<br>MEMBERS</p>
+        </div>
+        <div class="counter-box">
+            <h3 class="counter" data-target="37">0</h3>
+            <p>PLEDGES</p>
+        </div>
+        <div class="counter-box">
+            <h3 class="counter" data-target="0">0</h3>
+            <p>ALUMNI</p>
         </div>
     </div>
+</section>
 
-    <!-- TOP GRID -->
-    <div class="grid">
+<!-- EXEC -->
+<section class="section">
+<h2>Executive Board</h2>
+<div class="exec-grid">
 
-        <!-- MAIN CHART -->
-        <div class="card">
-            <h3>Project Growth</h3>
-            <canvas id="growthChart"></canvas>
-        </div>
+<!-- 1 Neeharika Nair -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
 
-        <!-- TRIDENT VISUAL -->
-        <div class="card visual">
-            <img src="trident.png">
-        </div>
-
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Niki_N_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
     </div>
 
-    <!-- BOTTOM GRID -->
-    <div class="grid-bottom">
-
-        <div class="card">
-            <h3>Major Distribution</h3>
-            <canvas id="majorChart"></canvas>
-        </div>
-
-        <div class="card">
-            <h3>GPA Distribution</h3>
-            <canvas id="gpaChart"></canvas>
-        </div>
-
-        <div class="card">
-            <h3>IU Schools</h3>
-            <canvas id="schoolChart"></canvas>
-        </div>
-
+    <div class="text-block">
+        <h3>Neeharika Nair</h3>
+        <p>President</p>
     </div>
+
+    <a href="https://www.linkedin.com/in/neeharikanair/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Niki_N_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Neeharika Nair</div>
+        <div class="back-role">President</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Computer Science</div>
+        <div class="back-spec-pill">Specializing in Artificial Intelligence</div>
+        <div class="back-bio">Leads TEK's strategic vision and long-term growth, focusing on building a high-performing organization at the intersection of AI, business, and data-driven decision making.</div>
+    </div>
+</div>
 
 </div>
 </div>
+
+<!-- 2 Alekhya Vadiala -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Alekhya_V_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
+    </div>
+
+    <div class="text-block">
+        <h3>Alekhya Vadiala</h3>
+        <p>Executive VP</p>
+    </div>
+
+    <a href="https://www.linkedin.com/in/alekhya-vadiala-176999324/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Alekhya_V_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Alekhya Vadiala</div>
+        <div class="back-role">Executive VP</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Intelligent Systems Engineering</div>
+        <div class="back-spec-pill">Specializing in Nanotechnology</div>
+        <div class="back-bio">Drives execution across all initiatives, ensuring TEK operates efficiently while scaling its impact across campus and aligning operations with long-term strategic goals.</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- 3 Caroline Conway -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Caroline_C_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
+    </div>
+
+    <div class="text-block">
+        <h3>Caroline Conway</h3>
+        <p>VP Social Engagement</p>
+    </div>
+
+    <a href="https://www.linkedin.com/in/carolineconway2006/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Caroline_C_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Caroline Conway</div>
+        <div class="back-role">VP Social Engagement</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Tourism, Hospitality & Event Mgmt</div>
+        <div class="back-spec-pill">Focus in Public Health</div>
+        <div class="back-bio">Designs and executes high-impact events that strengthen community and culture, fostering meaningful connections across TEK's growing network of members.</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- 4 Tessa Troyer -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Tessa_T_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
+    </div>
+
+    <div class="text-block">
+        <h3>Tessa Troyer</h3>
+        <p>VP Finance</p>
+    </div>
+
+    <a href="https://www.linkedin.com/in/tessa-troyer-vw/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Tessa_T_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Tessa Troyer</div>
+        <div class="back-role">VP Finance</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Finance</div>
+        <div class="back-bio">Oversees financial strategy, budgeting, and resource allocation, ensuring TEK's initiatives are sustainable and aligned with long-term organizational growth.</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- 5 Genny Foulk -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Genny_F_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
+    </div>
+
+    <div class="text-block">
+        <h3>Genny Foulk</h3>
+        <p>VP Operations</p>
+    </div>
+
+    <a href="https://www.linkedin.com/in/genny-foulk-2073ba348/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Genny_F_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Genny Foulk</div>
+        <div class="back-role">VP Operations</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Intelligent Systems Engineering</div>
+        <div class="back-spec-pill">Specializing in Bioengineering</div>
+        <div class="back-bio">Optimizes internal systems and workflows to ensure efficient execution of TEK's initiatives, focusing on scalability and operational excellence.</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- 6 Martin Vidal -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Martin_V_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
+    </div>
+
+    <div class="text-block">
+        <h3>Martin Vidal</h3>
+        <p>VP Professional Development</p>
+    </div>
+
+    <a href="https://www.linkedin.com/in/martin-vidal-luddy/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Martin_V_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Martin Vidal</div>
+        <div class="back-role">VP Professional Development</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Intelligent Systems Engineering</div>
+        <div class="back-spec-pill">Specializing in Cyber-Physical Systems</div>
+        <div class="back-bio">Leads career-focused programming, connecting members with industry opportunities and building technical and professional skills for competitive careers.</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- 7 Tanner Gault -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Tanner_G_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
+    </div>
+
+    <div class="text-block">
+        <h3>Tanner Gault</h3>
+        <p>VP Recruitment</p>
+    </div>
+
+    <a href="https://www.linkedin.com/in/tannergault/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Tanner_G_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Tanner Gault</div>
+        <div class="back-role">VP Recruitment</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Intelligent Systems Engineering</div>
+        <div class="back-spec-pill">Specializing in Cyber-Physical Systems</div>
+        <div class="back-bio">Builds TEK's future by identifying and recruiting high-potential students, shaping a competitive and forward-thinking member base.</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- 8 Jaiden Medina -->
+<div class="exec-card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+
+<div class="card-front">
+    <div class="image-wrap">
+        <img src="exec/Jaiden_M_hs.jpg">
+        <div class="overlay"><span>VIEW BIO</span></div>
+    </div>
+
+    <div class="text-block">
+        <h3>Jaiden Medina</h3>
+        <p>VP Technical Development</p>
+    </div>
+
+    <a href="https://www.linkedin.com/in/jaiden-medina/" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="card-back">
+    <div class="card-back-wave"></div>
+
+    <div class="card-back-avatar">
+        <img src="exec/Jaiden_M_hs.jpg">
+    </div>
+
+    <div class="card-back-content">
+        <div class="back-name">Jaiden Medina</div>
+        <div class="back-role">VP Technical Development</div>
+        <div class="card-back-divider"></div>
+        <div class="back-major-pill">Computer Engineering</div>
+        <div class="back-bio">Leads technical initiatives and digital infrastructure, including web development and systems integration that enhance TEK's digital presence.</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- MEMBERS -->
+<section class="section">
+<h2>Alpha Class</h2>
+<div class="members-grid">
+
+<div class="member-card">
+    <strong>Alexa Napieralski</strong>
+    <div class="major">Data Science</div>
+    <a href="https://www.linkedin.com/in/alexa-napieralski/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Andrew Borgsdorf</strong>
+    <div class="major">Intelligent Systems Engineering</div>
+    <a href="https://www.linkedin.com/in/andrew-borgsdorf/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Andrew Pasnik</strong>
+    <div class="major">Data Science</div>
+    <a href="https://www.linkedin.com/in/andrew-pasnik/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Bella Sauer</strong>
+    <div class="major">Cybersecurity & Global Policy</div>
+    <a href="https://www.linkedin.com/in/isabella-sauer/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Ben Rimmington</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/benjamin-rimington/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Connor Prodoehl</strong>
+    <div class="major">Operations Management</div>
+    <a href="https://www.linkedin.com/in/connorprodoehl/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Daven Sproull</strong>
+    <div class="major">Intelligent Systems Engineering</div>
+    <a href="https://www.linkedin.com/in/daven-sproull-870a87309/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>David Akinfisoye</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/davidakinfisoye/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Gabrielle Roose</strong>
+    <div class="major">Informatics & Marketing</div>
+    <a href="https://www.linkedin.com/in/gabrielleroose/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Grace Roudebush</strong>
+    <div class="major">Cybersecurity & Global Policy</div>
+    <a href="https://www.linkedin.com/in/graceroudebush/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Harkhush Singh</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/harkhush-singh/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Ibrahim Doukoure</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/ibrahim-doukoure-69101632a/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Jack Wember</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/jack-wember/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Jacob Jenkins</strong>
+    <div class="major">Supply Chain Management & Business Analytics</div>
+    <a href="https://www.linkedin.com/in/jacob-g-jenkins/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Jezel Lopez</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/jezel-lopez/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Johnny Zheng</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/jnzheng/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Josh Lindley</strong>
+    <div class="major">Cybersecurity & Global Policy</div>
+    <a href="https://www.linkedin.com/in/josh-lindley/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Katie Castro</strong>
+    <div class="major">Intelligent Systems Engineering</div>
+    <a href="https://www.linkedin.com/in/katie-castro1/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Kirsten Jackson</strong>
+    <div class="major">Accounting & Digital Tech Management</div>
+    <a href="https://www.linkedin.com/in/kirsten-grace-jackson/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Lavanya Nahar</strong>
+    <div class="major">Business</div>
+    <a href="https://www.linkedin.com/in/lavanya-nahar/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Litzy Martinez</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/litzy-martinez-49105a31b/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Logan Reddell</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/loganreddell/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Lois Carr</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/lois-carr/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Maddy Nizza</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/madelinenizza/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Matthew Daudelin</strong>
+    <div class="major">Sports Marketing & Management</div>
+    <a href="https://www.linkedin.com/in/matthew-daudelin-4434b73b5/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Mia Schlessinger</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/mia-schlessinger-266aa0393/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Mike Weyne</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/michael-weyne-2b23a8356/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Monish Malla</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/monish-malla/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Nathan Udal</strong>
+    <div class="major">Intelligent Systems Engineering</div>
+    <a href="https://www.linkedin.com/in/nathan-udal-abb94b384/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Neve Blum</strong>
+    <div class="major">Cybersecurity & Global Policy</div>
+    <a href="https://www.linkedin.com/in/neve-blum-179143366/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Peri Small</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/peri-small/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Priyanka Kansara</strong>
+    <div class="major">Computer Science</div>
+    <a href="https://www.linkedin.com/in/pkansara/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Rylan Kagan</strong>
+    <div class="major">Informatics</div>
+    <a href="https://www.linkedin.com/in/rylankagan/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Sam Mellon</strong>
+    <div class="major">Data Science</div>
+    <a href="https://www.linkedin.com/in/sammellon/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Spencer Goodson</strong>
+    <div class="major">Cybersecurity & Global Policy</div>
+    <a href="https://www.linkedin.com/in/spencer-goodson-cyber/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Tanisha Chandrasekaran</strong>
+    <div class="major">Finance & Computer Science</div>
+    <a href="https://www.linkedin.com/in/tanishachandrasekaran/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+<div class="member-card">
+    <strong>Taylor Bishop</strong>
+    <div class="major">Management & Political Science</div>
+    <a href="https://www.linkedin.com/in/taylor-bishop-/" target="_blank" class="linkedin-btn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg">LinkedIn
+    </a>
+</div>
+
+</div>
+</section>
+
+<footer>
+    © 2026 Tau Epsilon Kappa — Indiana University
+</footer>
 
 <script>
+const counters = document.querySelectorAll('.counter');
 
-/* =========================
-   CHART STYLE (GLOBAL)
-========================= */
-Chart.defaults.color = "#9fb3c8";
-Chart.defaults.borderColor = "rgba(255,255,255,0.1)";
+function animateCounters() {
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 3000;
+        const increment = target / (duration / 16);
+        let count = 0;
+        const updateCount = () => {
+            count += increment;
+            if (count < target) {
+                counter.innerText = Math.floor(count);
+                requestAnimationFrame(updateCount);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+}
 
-/* PROJECT GROWTH */
-new Chart(document.getElementById('growthChart'), {
-    type: 'line',
-    data: {
-        labels: ['2024','2025','2026'],
-        datasets: [{
-            data: [2,5,9],
-            borderColor: '#7ecbff',
-            backgroundColor: 'rgba(126,203,255,0.1)',
-            fill:true,
-            tension:0.4
-        }]
-    }
-});
-
-/* MAJORS */
-new Chart(document.getElementById('majorChart'), {
-    type: 'doughnut',
-    data: {
-        labels: ['Data Science','CS','Finance','Informatics'],
-        datasets: [{
-            data: [40,25,20,15],
-            backgroundColor: [
-                '#7ecbff','#3b82f6','#1d4ed8','#0ea5e9'
-            ]
-        }]
-    }
-});
-
-/* GPA */
-new Chart(document.getElementById('gpaChart'), {
-    type: 'bar',
-    data: {
-        labels: ['3.0-3.3','3.3-3.6','3.6-3.8','3.8+'],
-        datasets: [{
-            data: [2,4,6,8],
-            backgroundColor:'#7ecbff'
-        }]
-    }
-});
-
-/* SCHOOLS */
-new Chart(document.getElementById('schoolChart'), {
-    type: 'pie',
-    data: {
-        labels: ['Luddy','Kelley','Other'],
-        datasets: [{
-            data: [60,30,10],
-            backgroundColor: [
-                '#7ecbff','#3b82f6','#1e293b'
-            ]
-        }]
-    }
-});
-
+window.addEventListener('load', animateCounters);
 </script>
-
 </body>
 </html>
